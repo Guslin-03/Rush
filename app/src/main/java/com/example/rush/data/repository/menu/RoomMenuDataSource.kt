@@ -16,6 +16,11 @@ class RoomMenuDataSource: MenuRepository {
         return Resource.success(response)
     }
 
+    override suspend fun getMenusByIdRestaurant(): Resource<List<Menu>> {
+        val response = menuDao.getMenusByIdRestaurant().map { it.toMenu() }
+        return Resource.success(response)
+    }
+
 
 }
 
@@ -26,5 +31,8 @@ fun Menu.toDbMenu() = DbMenu(id, name, description, price, type, restaurantId)
 interface MenuDAO {
     @Query("SELECT * FROM menus ORDER BY name")
     suspend fun getMenus() : List<DbMenu>
+
+    @Query("SELECT * FROM menus ORDER BY name")
+    suspend fun getMenusByIdRestaurant() : List<DbMenu>
 
 }

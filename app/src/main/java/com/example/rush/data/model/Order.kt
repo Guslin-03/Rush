@@ -6,8 +6,8 @@ import java.util.Date
 
 @Parcelize
 data class Order(
-    val id: Int?,
+    var id: Int,
     val date: Date,
     val userId: String,
-    val menuList: List<Menu>?
+    var menuList: List<Menu>
 ):Parcelable

@@ -5,4 +5,6 @@ import com.example.rush.utils.Resource
 
 interface OrderRepository {
     suspend fun getOrders(): Resource<List<Order>>
+    suspend fun getOrdersByUser(userId: Int): Resource<List<Order>>
+    suspend fun createOrder(newOrder: Order): Resource<Order>
 }

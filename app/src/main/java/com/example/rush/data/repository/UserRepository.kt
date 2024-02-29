@@ -5,4 +5,5 @@ import com.example.rush.utils.Resource
 
 interface UserRepository {
     suspend fun getUsers(): Resource<List<User>>
+    suspend fun getUserById(userId: Int): Resource<User>
 }

@@ -16,6 +16,10 @@ class RoomUserDataSource: UserRepository {
         return Resource.success(response)
     }
 
+    override suspend fun getUserById(userId: Int): Resource<User> {
+        val response = userDao.getUserById(userId).toUser()
+        return Resource.success(response)
+    }
 
 }
 
@@ -26,5 +30,8 @@ fun User.toDbUser() = DbUser(id, name, surname, email, phoneNumber, rushPoints, 
 interface UserDAO {
     @Query("SELECT * FROM users")
     suspend fun getUsers() : List<DbUser>
+
+    @Query("SELECT * FROM users WHERE id = :userId")
+    suspend fun getUserById(userId: Int) : DbUser
 
 }

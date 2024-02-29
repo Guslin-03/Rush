@@ -8,6 +8,7 @@ import com.example.rush.data.repository.menu.MenuDAO
 import com.example.rush.data.repository.order.DbOrder
 import com.example.rush.data.repository.order.DbOrderMenu
 import com.example.rush.data.repository.order.OrderDAO
+import com.example.rush.data.repository.order.OrderMenuDAO
 import com.example.rush.data.repository.restaurant.DbRestaurant
 import com.example.rush.data.repository.restaurant.RestaurantDAO
 import com.example.rush.data.repository.user.DbUser
@@ -30,5 +31,6 @@ abstract class MyAppRoomDataBase: RoomDatabase() {
     abstract fun restaurantDAO(): RestaurantDAO
     abstract fun orderDAO(): OrderDAO
     abstract fun menuDAO(): MenuDAO
+    abstract fun orderMenuDAO(): OrderMenuDAO
 
 }
