@@ -76,4 +76,6 @@ dependencies {
     // ADD retrofit + gson para la conversion de strings en json a objetos y viceversa
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
+    implementation("pl.droidsonroids.gif:android-gif-drawable:1.2.19")
+
 }
