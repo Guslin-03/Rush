@@ -20,7 +20,7 @@ class DbMenu (
     @PrimaryKey(autoGenerate = true) val id: Int?,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "description") val description: String,
-    @ColumnInfo(name = "price") val price: Float,
+    @ColumnInfo(name = "price") val price: Double,
     @ColumnInfo(name = "type") val type: String,
     @ColumnInfo(name = "restaurantId") val restaurantId: Int,
 )

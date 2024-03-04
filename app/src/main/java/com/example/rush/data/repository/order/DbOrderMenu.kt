@@ -1,5 +1,6 @@
 package com.example.rush.data.repository.order
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import com.example.rush.data.repository.menu.DbMenu
@@ -21,5 +22,5 @@ import com.example.rush.data.repository.menu.DbMenu
 class DbOrderMenu (
     val orderId: Int,
     val menuId: Int,
-    val amount: Int
+    @ColumnInfo(name = "amount") val amount: Int
 )

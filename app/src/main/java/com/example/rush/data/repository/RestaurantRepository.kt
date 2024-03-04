@@ -5,4 +5,5 @@ import com.example.rush.utils.Resource
 
 interface RestaurantRepository {
     suspend fun getRestaurants(): Resource<List<Restaurant>>
+    suspend fun createRestaurant(restaurantArray: Array<Restaurant>): Resource<Void>
 }

@@ -16,7 +16,7 @@ import java.util.Date
         )]
 )
 class DbOrder (
-    @PrimaryKey(autoGenerate = true) val id: Int,
+    @PrimaryKey(autoGenerate = true) val id: Int?,
     @ColumnInfo(name = "date") val date: Date,
-    @ColumnInfo(name = "userId") val userId: String
+    @ColumnInfo(name = "userId") val userId: Int
 )
