@@ -22,9 +22,15 @@ class RoomUserDataSource: UserRepository {
         return Resource.success(response)
     }
 
-    override suspend fun login(username: String, password: String): Resource<Void> {
-        val response = userDao.login(username, password)
-        return Resource.success()
+    override suspend fun login(username: String, password: String): Resource<User> {
+        val dbUser = userDao.login(username, password)
+        return if (dbUser!=null){ //TODO QUITAR ESTE WARNING
+            val response = dbUser.toUser()
+            Resource.success(response)
+        }else{
+            Resource.error("Los datos introducidos son incorrectos")
+        }
+
     }
 
     override suspend fun createUser(userArray: Array<User>): Resource<Void> {
