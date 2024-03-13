@@ -8,9 +8,10 @@ import androidx.room.PrimaryKey
 class DbRestaurant (
     @PrimaryKey(autoGenerate = true) val id: Int?,
     @ColumnInfo(name = "name") val name: String,
-    @ColumnInfo(name = "location") val location: String,
     @ColumnInfo(name = "originType") val originType: String,
     @ColumnInfo(name = "specialty") val specialty: String,
+    @ColumnInfo(name = "rating") val rating: Float,
     @ColumnInfo(name = "numberReviews") val numberReviews: Int,
-    @ColumnInfo(name = "priceRange") val priceRange: Int
+    @ColumnInfo(name = "priceRange") val priceRange: Int,
+    @ColumnInfo(name = "location") val location: String,
 )

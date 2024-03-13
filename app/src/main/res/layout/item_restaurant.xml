@@ -4,30 +4,87 @@
     android:id="@+id/groupList"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingTop="12dp"
     android:orientation="vertical">
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content">-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="8dp">
 
-<!--        <TextView-->
-<!--            android:id="@+id/restaurantName"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_weight="0.75"-->
-<!--            android:padding="16dp"-->
-<!--            android:textSize="16sp"/>-->
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Misska"/>
 
-<!--        <ImageView-->
-<!--            android:id="@+id/groupType"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_weight="0.15"-->
-<!--            android:padding="16dp"-->
-<!--            app:srcCompat="@drawable/privategroup"-->
-<!--            android:contentDescription="@string/grupo_privado" />-->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:layout_marginStart="4dp"
+        android:gravity="end"
+        android:orientation="horizontal">
 
-<!--    </LinearLayout>-->
+        <TextView
+            android:id="@+id/rating"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="4.5"
+            android:textSize="16sp"
+            app:drawableLeftCompat="@drawable/estrella"
+            android:drawablePadding="4dp"/>
+
+        <TextView
+            android:id="@+id/numberReviews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:textSize="16sp"
+            android:text="(1234)"/>
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/culinaryStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="Japanese,"/>
+
+            <TextView
+                android:id="@+id/specialty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:textSize="16sp"
+                android:text="Sushi"/>
+
+        </LinearLayout>
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="4dp"
+        android:textSize="13sp"
+        android:text="Colón de Larreátegui K., 35, Abando, 48009 Bilbo, Bizkaia"/>
 
     <View
         android:layout_width="match_parent"
