@@ -1,5 +1,6 @@
 package com.example.rush.data.repository
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -11,7 +12,9 @@ import com.example.rush.data.model.User
 import com.example.rush.data.repository.menu.MenuType
 import com.example.rush.data.repository.menu.RoomMenuDataSource
 import com.example.rush.data.repository.order.RoomOrderDataSource
+import com.example.rush.data.repository.restaurant.FoodStyle
 import com.example.rush.data.repository.restaurant.RoomRestaurantDataSource
+import com.example.rush.data.repository.restaurant.Specialty
 import com.example.rush.data.repository.user.RoomUserDataSource
 import kotlinx.coroutines.launch
 import java.util.Date
@@ -46,9 +49,9 @@ class PopulateDataBase(
     private suspend fun createRestaurant() {
         restaurantLocalRepository.createRestaurant(
             arrayOf(
-                Restaurant(null, "Miska", "Colón de Larreátegui K., 35, Abando, 48009 Bilbo, Bizkaia"),
-                Restaurant(null, "GOSE - Smash Burgers", "Goienkale, 16, Ibaiondo, 48005 Bilbo, Bizkaia"),
-                Restaurant(null, "Amaren", "Diputazio Kalea, 6, Abando, 48009 Bilbo, Bizkaia")
+                Restaurant(null, "Misska", "Colón de Larreátegui K., 35, Abando, 48009 Bilbo, Bizkaia", FoodStyle.ASIAN.name, Specialty.RAMEN.name, 1234, 2 ),
+                Restaurant(null, "GOSE - Smash Burgers", "Goienkale, 16, Ibaiondo, 48005 Bilbo, Bizkaia", FoodStyle.AMERICAN.name, Specialty.HAMBURGER.name, 235, 3),
+                Restaurant(null, "Amaren", "Diputazio Kalea, 6, Abando, 48009 Bilbo, Bizkaia", FoodStyle.SPANISH.name, Specialty.SIRLOIN.name, 4562, 4)
             )
         )
     }

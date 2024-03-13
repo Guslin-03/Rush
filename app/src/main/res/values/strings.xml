@@ -5,4 +5,9 @@
     <string name="password">Contraseña</string>
     <string name="login">Iniciar sesión</string>
     <string name="rememberMe">Recuérdame</string>
+    <string name="start">Start</string>
+    <string name="orders">Orders</string>
+    <string name="help">Help</string>
+    <string name="buscar_un_art_culo">Buscar un artículo</string>
+    <string name="filtrado_de_locales">filtrado de locales</string>
 </resources>

@@ -15,9 +15,9 @@ class MainActivity : AppCompatActivity() {
         handler.postDelayed({ logIn() }, 1000)
     }
 
-private fun logIn() {
-    val intent = Intent(this, LoginActivity::class.java)
-    startActivity(intent)
-    finish()
-}
+    private fun logIn() {
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
 }

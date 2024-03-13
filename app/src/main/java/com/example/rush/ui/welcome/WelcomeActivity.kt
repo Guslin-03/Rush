@@ -1,5 +1,6 @@
 package com.example.rush.ui.welcome
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +11,7 @@ import com.example.rush.data.repository.order.RoomOrderDataSource
 import com.example.rush.data.repository.restaurant.RoomRestaurantDataSource
 import com.example.rush.data.repository.user.RoomUserDataSource
 import com.example.rush.databinding.WelcomeActivityBinding
+import com.example.rush.ui.restaurant.RestaurantActivity
 import com.example.rush.utils.MyApp
 
 class WelcomeActivity  : AppCompatActivity(){
@@ -27,6 +29,10 @@ class WelcomeActivity  : AppCompatActivity(){
         setContentView(binding.root)
 
         if (!MyApp.userPreferences.getSaveDataBaseIsCreated()) populateDataBase.toInit()
+
+        val intent = Intent(this, RestaurantActivity::class.java)
+        startActivity(intent)
+        finish()
 
     }
 }

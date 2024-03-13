@@ -27,8 +27,8 @@ class RoomRestaurantDataSource: RestaurantRepository {
 
 }
 
-fun DbRestaurant.toRestaurant() = Restaurant(id, name, location)
-fun Restaurant.toDbRestaurant() = DbRestaurant(id, name, location)
+fun DbRestaurant.toRestaurant() = Restaurant(id, name, location, originType, specialty, numberReviews, priceRange)
+fun Restaurant.toDbRestaurant() = DbRestaurant(id, name, location, originType, specialty, numberReviews, priceRange)
 
 @Dao
 interface RestaurantDAO {
