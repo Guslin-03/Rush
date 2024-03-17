@@ -1,14 +1,17 @@
 package com.example.rush.ui.restaurant
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.example.rush.R
 import com.example.rush.data.model.Restaurant
 import com.example.rush.data.repository.restaurant.RoomRestaurantDataSource
 import com.example.rush.databinding.RestaurantActivityBinding
+import com.example.rush.ui.profile.ProfileActivity
 import com.example.rush.utils.MyApp
 import com.example.rush.utils.Resource
 
@@ -54,6 +57,30 @@ class RestaurantActivity : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {}
         })
 
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.orders -> {
+                    //FUNCIONALIDAD ORDERS
+                    true
+                }
+
+                R.id.start -> {
+                    true
+                }
+
+                R.id.profile-> {
+                    showProfile()
+                    true
+                }
+
+                else -> false // Manejo predeterminado para otros elementos
+            }
+
+        }}
+    private fun showProfile(){
+        val intent = Intent(this, ProfileActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     private fun filterByText(s: CharSequence?){

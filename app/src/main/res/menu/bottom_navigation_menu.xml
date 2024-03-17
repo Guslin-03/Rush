@@ -12,9 +12,9 @@
         android:icon="@drawable/carrito_de_compras_24"
         android:title="@string/orders"/>
     <item
-        android:id="@+id/help"
+        android:id="@+id/profile"
         android:enabled="true"
         android:icon="@drawable/usuario_24"
-        android:title="@string/help"/>
+        android:title="@string/profile" />
 
 </menu>

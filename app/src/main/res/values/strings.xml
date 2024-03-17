@@ -7,7 +7,20 @@
     <string name="rememberMe">Recuérdame</string>
     <string name="start">Start</string>
     <string name="orders">Orders</string>
-    <string name="help">Help</string>
+    <string name="profile">Profile</string>
     <string name="buscar_un_art_culo">Buscar un artículo</string>
     <string name="filtrado_de_locales">filtrado de locales</string>
+    <string name="take_picture">Tomar foto</string>
+    <string name="get_picture">Elegir foto de la galería</string>
+    <string name="choose">Elige una opción</string>
+    <string name="cancel">Cancelar</string>
+    <string name="toast_no_camera">Este dispositivo no tiene cámara</string>
+    <string name="imagen_perfil">Imgaen de Perfil</string>
+    <string name="name">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="tel_fono_m_vil">Teléfono Móvil</string>
+    <string name="rush">Logo de Rush</string>
+    <string name="my_profile">Mi perfil</string>
+    <string name="hi">¡Hola, %1$s %2$s!</string>
+    <string name="sun">Sol</string>
 </resources>

@@ -78,4 +78,9 @@ dependencies {
 
     implementation("pl.droidsonroids.gif:android-gif-drawable:1.2.19")
 
+    //GLIDE
+    implementation ("com.karumi:dexter:6.2.3")
+    implementation ("com.github.bumptech.glide:glide:4.12.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
+
 }
