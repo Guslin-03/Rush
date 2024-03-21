@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+<!--    TOOLBAR-->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_chat_configuration"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#FF9800"
+        app:title="@string/filtrar_establecimientos" />
+
+<!--    COMBO-RADIOBUTTONS-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp">
+
+<!-- ESTILOS DE COCINA-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/culinaryStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@string/estilo_de_cocina"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="0.5">
+
+                    <RadioButton
+                        android:id="@+id/asian"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/asi_tica"
+                        tools:layout_editor_absoluteX="134dp"
+                        tools:layout_editor_absoluteY="211dp" />
+
+                    <RadioButton
+                        android:id="@+id/japanese"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/japonesa"
+                        tools:layout_editor_absoluteX="134dp"
+                        tools:layout_editor_absoluteY="211dp" />
+
+                    <RadioButton
+                        android:id="@+id/american"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/americana"
+                        tools:layout_editor_absoluteX="134dp"
+                        tools:layout_editor_absoluteY="211dp" />
+
+                    <RadioButton
+                        android:id="@+id/spanish"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/espa_ola"
+                        tools:layout_editor_absoluteX="134dp"
+                        tools:layout_editor_absoluteY="211dp" />
+
+                    <RadioButton
+                        android:id="@+id/italian"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/italiana"
+                        tools:layout_editor_absoluteX="134dp"
+                        tools:layout_editor_absoluteY="211dp" />
+
+                    <RadioButton
+                        android:id="@+id/french"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/francesa"
+                        tools:layout_editor_absoluteX="134dp"
+                        tools:layout_editor_absoluteY="211dp" />
+
+                    <RadioButton
+                        android:id="@+id/indian"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/india"
+                        tools:layout_editor_absoluteX="134dp"
+                        tools:layout_editor_absoluteY="211dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="0.5">
+
+                    <RadioButton
+                        android:id="@+id/arabic"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/rabe"
+                        tools:layout_editor_absoluteX="134dp"
+                        tools:layout_editor_absoluteY="211dp" />
+
+                    <RadioButton
+                        android:id="@+id/mexican"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mexicana"
+                        tools:layout_editor_absoluteX="134dp"
+                        tools:layout_editor_absoluteY="211dp" />
+
+                    <RadioButton
+                        android:id="@+id/bolivian"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/boliviana"
+                        tools:layout_editor_absoluteX="134dp"
+                        tools:layout_editor_absoluteY="211dp" />
+
+                    <RadioButton
+                        android:id="@+id/argentinian"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/argentina"
+                        tools:layout_editor_absoluteX="134dp"
+                        tools:layout_editor_absoluteY="211dp" />
+
+                    <RadioButton
+                        android:id="@+id/peruvian"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/peruana"
+                        tools:layout_editor_absoluteX="134dp"
+                        tools:layout_editor_absoluteY="211dp" />
+
+                    <RadioButton
+                        android:id="@+id/chilean"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/chilena"
+                        tools:layout_editor_absoluteX="134dp"
+                        tools:layout_editor_absoluteY="211dp" />
+
+                </LinearLayout>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="@android:color/black"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="10dp"/>
+        <!-- ESPECIALIDADES-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/specialty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@string/especialidad"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="0.5">
+
+                    <RadioButton
+                        android:id="@+id/hamburguer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hamburguesa"
+                        tools:layout_editor_absoluteX="134dp"
+                        tools:layout_editor_absoluteY="211dp" />
+
+                    <RadioButton
+                        android:id="@+id/pizza"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pizza"
+                        tools:layout_editor_absoluteX="134dp"
+                        tools:layout_editor_absoluteY="211dp" />
+
+                    <RadioButton
+                        android:id="@+id/sushi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sushi"
+                        tools:layout_editor_absoluteX="134dp"
+                        tools:layout_editor_absoluteY="211dp" />
+
+                    <RadioButton
+                        android:id="@+id/durum"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/d_rum"
+                        tools:layout_editor_absoluteX="134dp"
+                        tools:layout_editor_absoluteY="211dp" />
+
+                    <RadioButton
+                        android:id="@+id/kebab"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/kebab"
+                        tools:layout_editor_absoluteX="134dp"
+                        tools:layout_editor_absoluteY="211dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="0.5">
+
+                    <RadioButton
+                        android:id="@+id/burrito"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/burrito"
+                        tools:layout_editor_absoluteX="134dp"
+                        tools:layout_editor_absoluteY="211dp" />
+
+                    <RadioButton
+                        android:id="@+id/tacos_al_pastor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tacos_al_pastor"
+                        tools:layout_editor_absoluteX="134dp"
+                        tools:layout_editor_absoluteY="211dp" />
+
+                    <RadioButton
+                        android:id="@+id/sirloin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sirloin"
+                        tools:layout_editor_absoluteX="134dp"
+                        tools:layout_editor_absoluteY="211dp" />
+
+                    <RadioButton
+                        android:id="@+id/pasta"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pasta"
+                        tools:layout_editor_absoluteX="134dp"
+                        tools:layout_editor_absoluteY="211dp" />
+
+                    <RadioButton
+                        android:id="@+id/ramen"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ramen"
+                        tools:layout_editor_absoluteX="134dp"
+                        tools:layout_editor_absoluteY="211dp" />
+
+                </LinearLayout>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="@android:color/black"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="10dp"/>
+        <!-- VALORACION Y PRECIO-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/rating_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@string/valoraci_n_y_precio"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.example.rush.ui.restaurant.filter.NumberedSeekBar
+                    android:id="@+id/seekBarRating"
+                    style="@style/Widget.AppCompat.SeekBar"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="0.5"
+                    android:max="4"
+                    android:progress="0"
+                    android:thumb="@drawable/estrella"
+                    android:thumbTintMode="src_over"
+                    android:progressTint="@color/yellow" />
+
+                <com.example.rush.ui.restaurant.filter.NumberedSeekBar
+                    android:id="@+id/seekBarPriceRange"
+                    style="@style/Widget.AppCompat.SeekBar"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="0.5"
+                    android:max="4"
+                    android:progress="0"
+                    android:thumb="@drawable/euro"
+                    android:thumbTintMode="src_over"
+                    android:progressTint="@color/black" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+<!--    BUTTONS -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp"
+        android:weightSum="3">
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancelar"
+            android:backgroundTint="#F4A474"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/confirmar"
+            android:backgroundTint="#F4A474"/>
+
+    </LinearLayout>
+
+</LinearLayout>

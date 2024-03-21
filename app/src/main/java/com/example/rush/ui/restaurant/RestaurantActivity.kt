@@ -12,6 +12,7 @@ import com.example.rush.data.model.Restaurant
 import com.example.rush.data.repository.restaurant.RoomRestaurantDataSource
 import com.example.rush.databinding.RestaurantActivityBinding
 import com.example.rush.ui.profile.ProfileActivity
+import com.example.rush.ui.restaurant.filter.FilterActivity
 import com.example.rush.utils.MyApp
 import com.example.rush.utils.Resource
 
@@ -32,6 +33,10 @@ class RestaurantActivity : AppCompatActivity() {
         )
 
         binding.restaurantList.adapter = restaurantAdapter
+
+        binding.complexFilter.setOnClickListener {
+            goToFilter()
+        }
 
         restaurantViewModel.restaurant.observe(this) {
             when(it.status) {
@@ -79,6 +84,12 @@ class RestaurantActivity : AppCompatActivity() {
         }}
     private fun showProfile(){
         val intent = Intent(this, ProfileActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    private fun goToFilter(){
+        val intent = Intent(this, FilterActivity::class.java)
         startActivity(intent)
         finish()
     }
