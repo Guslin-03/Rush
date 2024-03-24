@@ -45,6 +45,12 @@
         <activity android:name=".ui.restaurant.filter.FilterActivity" android:exported="true" android:label="RestaurantFilter">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".MainActivity"/>
         </activity>
+        <activity android:name=".ui.profile.card.CardActivity" android:exported="true" android:label="Card">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".MainActivity"/>
+        </activity>
+        <activity android:name=".ui.profile.help.HelpActivity" android:exported="true" android:label="Help">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".MainActivity"/>
+        </activity>
     </application>
 
 </manifest>

@@ -18,6 +18,8 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.rush.R
 import com.example.rush.databinding.InfoActivityBinding
 import com.example.rush.databinding.ProfileActivityBinding
+import com.example.rush.ui.profile.ProfileAdapter
+import com.example.rush.ui.restaurant.RestaurantActivity
 import com.example.rush.utils.MyApp
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.PermissionToken
@@ -34,8 +36,30 @@ class InfoActivity : AppCompatActivity(){
         binding = InfoActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setData()
 
         binding.profilePicture.setOnClickListener { pickPhoto() }
+
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.orders -> {
+                    //FUNCIONALIDAD ORDERS
+                    true
+                }
+
+                R.id.start -> {
+                    showStart()
+                    true
+                }
+
+                R.id.profile -> {
+                    showInfo()
+                    true
+                }
+
+                else -> false // Manejo predeterminado para otros elementos
+            }
+        }
     }
     @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -131,5 +155,25 @@ class InfoActivity : AppCompatActivity(){
             null
         )
         return Uri.parse(path)
+    }
+    private fun setData(){
+        val user = MyApp.userPreferences.getUser()
+        if (user != null) {
+            binding.name.setText(user.name)
+            binding.surname.setText(user.surname)
+            binding.phone.setText(user.phoneNumber.toString())
+            binding.email.setText(user.email)
+        }
+
+    }
+    private fun showStart(){
+        val intent = Intent(this, RestaurantActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+    private fun showInfo(){
+        val intent = Intent(this, InfoActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }

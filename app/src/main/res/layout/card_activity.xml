@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_personal_configuration"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#F6844C"
+        android:elevation="4dp"
+        app:layout_collapseMode="pin"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:title=" "
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:id="@+id/resumeLogo"
+                android:layout_width="63dp"
+                android:layout_height="61dp"
+                android:contentDescription="@string/rush"
+                app:srcCompat="@drawable/rush_letters"
+                tools:ignore="ImageContrastCheck"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="16dp" />
+
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/rush_points_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rush Points:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/credit_card_image"
+        app:layout_constraintEnd_toStartOf="@+id/rush_points_value"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_personal_configuration" />
+
+    <TextView
+        android:id="@+id/rush_points_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/credit_card_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/rush_points_label"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_personal_configuration" />
+
+    <!-- Imagen de la tarjeta de crédito -->
+
+    <!-- Campo para el número de tarjeta de crédito -->
+    <ImageView
+        android:id="@+id/credit_card_image"
+        android:layout_width="180dp"
+        android:layout_height="176dp"
+        android:src="@drawable/credit_card"
+        app:layout_constraintBottom_toTopOf="@+id/credit_card_number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rush_points_label" />
+
+    <EditText
+        android:id="@+id/credit_card_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Número de Tarjeta de Crédito"
+        android:inputType="number"
+        android:text="1234 5678 9012 3456"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/change_credit_card_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/credit_card_image" />
+
+    <!-- Botón para cambiar el número de tarjeta de crédito -->
+    <Button
+        android:id="@+id/change_credit_card_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cambiar Número de Tarjeta de Crédito"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/credit_card_number" />
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/bottom_navigation_menu"
+        tools:ignore="VisualLintBottomNav" />
+</androidx.constraintlayout.widget.ConstraintLayout>
