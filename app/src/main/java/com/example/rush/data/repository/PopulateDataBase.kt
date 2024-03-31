@@ -48,11 +48,11 @@ class PopulateDataBase(
     private suspend fun createRestaurant() {
         restaurantLocalRepository.createRestaurant(
             arrayOf(
-                Restaurant(null, "Misska", CulinaryStyle.ASIAN.name, Specialty.RAMEN.name,
+                Restaurant(null, "Misska", CulinaryStyle.ASIATICA.name, Specialty.RAMEN.name,
                     4.5F, 1234, 2,"Colón de Larreátegui K., 35, Abando, 48009 Bilbo, Bizkaia" ),
-                Restaurant(null, "GOSE - Smash Burgers", CulinaryStyle.AMERICAN.name, Specialty.HAMBURGER.name,
+                Restaurant(null, "GOSE - Smash Burgers", CulinaryStyle.AMERICANA.name, Specialty.HAMBURGUESA.name,
                     4.3F ,235, 3, "Goienkale, 16, Ibaiondo, 48005 Bilbo, Bizkaia"),
-                Restaurant(null, "Amaren", CulinaryStyle.SPANISH.name, Specialty.SIRLOIN.name,
+                Restaurant(null, "Amaren", CulinaryStyle.ESPAÑOLA.name, Specialty.SIRLOIN.name,
                     4.8F, 4562, 4, "Diputazio Kalea, 6, Abando, 48009 Bilbo, Bizkaia")
             )
         )

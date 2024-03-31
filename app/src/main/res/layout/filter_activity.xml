@@ -38,6 +38,7 @@
                 android:text="@string/estilo_de_cocina"/>
 
             <RadioGroup
+                android:id="@+id/culinaryStyleRG"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -52,57 +53,43 @@
                         android:id="@+id/asian"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/asi_tica"
-                        tools:layout_editor_absoluteX="134dp"
-                        tools:layout_editor_absoluteY="211dp" />
+                        android:text="@string/asi_tica" />
 
                     <RadioButton
                         android:id="@+id/japanese"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/japonesa"
-                        tools:layout_editor_absoluteX="134dp"
-                        tools:layout_editor_absoluteY="211dp" />
+                        android:text="@string/japonesa" />
 
                     <RadioButton
                         android:id="@+id/american"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/americana"
-                        tools:layout_editor_absoluteX="134dp"
-                        tools:layout_editor_absoluteY="211dp" />
+                        android:text="@string/americana" />
 
                     <RadioButton
                         android:id="@+id/spanish"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/espa_ola"
-                        tools:layout_editor_absoluteX="134dp"
-                        tools:layout_editor_absoluteY="211dp" />
+                        android:text="@string/espa_ola" />
 
                     <RadioButton
                         android:id="@+id/italian"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/italiana"
-                        tools:layout_editor_absoluteX="134dp"
-                        tools:layout_editor_absoluteY="211dp" />
+                        android:text="@string/italiana" />
 
                     <RadioButton
                         android:id="@+id/french"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/francesa"
-                        tools:layout_editor_absoluteX="134dp"
-                        tools:layout_editor_absoluteY="211dp" />
+                        android:text="@string/francesa" />
 
                     <RadioButton
                         android:id="@+id/indian"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/india"
-                        tools:layout_editor_absoluteX="134dp"
-                        tools:layout_editor_absoluteY="211dp" />
+                        android:text="@string/india" />
 
                 </LinearLayout>
 
@@ -116,49 +103,37 @@
                         android:id="@+id/arabic"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/rabe"
-                        tools:layout_editor_absoluteX="134dp"
-                        tools:layout_editor_absoluteY="211dp" />
+                        android:text="@string/rabe" />
 
                     <RadioButton
                         android:id="@+id/mexican"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/mexicana"
-                        tools:layout_editor_absoluteX="134dp"
-                        tools:layout_editor_absoluteY="211dp" />
+                        android:text="@string/mexicana" />
 
                     <RadioButton
                         android:id="@+id/bolivian"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/boliviana"
-                        tools:layout_editor_absoluteX="134dp"
-                        tools:layout_editor_absoluteY="211dp" />
+                        android:text="@string/boliviana" />
 
                     <RadioButton
                         android:id="@+id/argentinian"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/argentina"
-                        tools:layout_editor_absoluteX="134dp"
-                        tools:layout_editor_absoluteY="211dp" />
+                        android:text="@string/argentina" />
 
                     <RadioButton
                         android:id="@+id/peruvian"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/peruana"
-                        tools:layout_editor_absoluteX="134dp"
-                        tools:layout_editor_absoluteY="211dp" />
+                        android:text="@string/peruana" />
 
                     <RadioButton
                         android:id="@+id/chilean"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/chilena"
-                        tools:layout_editor_absoluteX="134dp"
-                        tools:layout_editor_absoluteY="211dp" />
+                        android:text="@string/chilena" />
 
                 </LinearLayout>
 
@@ -188,6 +163,7 @@
                 android:text="@string/especialidad"/>
 
             <RadioGroup
+                android:id="@+id/specialtyRG"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">

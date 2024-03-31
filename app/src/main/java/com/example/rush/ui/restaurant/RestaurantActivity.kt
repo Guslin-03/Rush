@@ -1,14 +1,18 @@
 package com.example.rush.ui.restaurant
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.rush.R
 import com.example.rush.data.model.Restaurant
+import com.example.rush.data.model.RestaurantFilter
 import com.example.rush.data.repository.restaurant.RoomRestaurantDataSource
 import com.example.rush.databinding.RestaurantActivityBinding
 import com.example.rush.ui.profile.ProfileActivity
@@ -42,6 +46,7 @@ class RestaurantActivity : AppCompatActivity() {
             when(it.status) {
                 Resource.Status.SUCCESS -> {
                     restaurantAdapter.submitList(it.data)
+                    advanceFilter()
                 }
                 Resource.Status.ERROR -> {
                     Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
@@ -81,7 +86,35 @@ class RestaurantActivity : AppCompatActivity() {
                 else -> false // Manejo predeterminado para otros elementos
             }
 
-        }}
+        }
+
+    }
+
+    private fun advanceFilter() {
+        val restaurantFilter: RestaurantFilter? = intent.getParcelableExtra("restaurantFilter")
+
+        if (restaurantFilter != null) {
+            var currentRestaurantList = restaurantAdapter.currentList
+
+            currentRestaurantList = currentRestaurantList.filter { it.priceRange > restaurantFilter.priceRange }
+            currentRestaurantList = currentRestaurantList.filter { it.rating > restaurantFilter.rating }
+
+            if (restaurantFilter.originType.isNotEmpty()) {
+                currentRestaurantList = currentRestaurantList.filter { restaurant ->
+                    restaurantFilter.originType.contains(restaurant.originType) }
+            }
+
+            if (restaurantFilter.specialty.isNotEmpty()) {
+                currentRestaurantList = currentRestaurantList.filter { restaurant ->
+                    restaurantFilter.specialty.contains(restaurant.specialty) }
+            }
+
+            Log.i("currentRestaurantList", currentRestaurantList.toString())
+            Log.i("currentRestaurantList", restaurantFilter.toString())
+            restaurantAdapter.submitList(currentRestaurantList)
+        }
+    }
+
     private fun showProfile(){
         val intent = Intent(this, ProfileActivity::class.java)
         startActivity(intent)
