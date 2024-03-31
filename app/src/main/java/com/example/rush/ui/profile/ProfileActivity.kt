@@ -12,7 +12,10 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.bumptech.glide.request.RequestOptions
 import com.example.rush.R
+import com.example.rush.databinding.CardActivityBinding
 import com.example.rush.databinding.ProfileActivityBinding
+import com.example.rush.ui.profile.card.CardActivity
+import com.example.rush.ui.profile.help.HelpActivity
 import com.example.rush.ui.profile.info.InfoActivity
 import com.example.rush.ui.restaurant.RestaurantActivity
 import com.example.rush.utils.MyApp
@@ -41,7 +44,7 @@ class ProfileActivity : AppCompatActivity() {
                 }
 
                 "Métodos de pago" -> {
-                    // Manejar acción para "Métodos de pago"
+                    showCard()
                 }
 
                 "Idioma" -> {
@@ -49,7 +52,7 @@ class ProfileActivity : AppCompatActivity() {
                 }
 
                 "Ayuda" -> {
-                    // Manejar acción para "Ayuda"
+                    showHelp()
                 }
 
             }
@@ -106,6 +109,16 @@ class ProfileActivity : AppCompatActivity() {
     }
     private fun showInfo(){
         val intent = Intent(this, InfoActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+    private fun showCard(){
+        val intent = Intent(this, CardActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+    private fun showHelp(){
+        val intent = Intent(this, HelpActivity::class.java)
         startActivity(intent)
         finish()
     }

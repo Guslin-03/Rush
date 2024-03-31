@@ -52,4 +52,8 @@
     <string name="ramen">Ramen</string>
     <string name="filtrar_establecimientos">Filtrar Establecimientos</string>
     <string name="cancelar">Cancelar</string>
+    <string name="question_1">1. ¿Cómo hago un pedido en la aplicación Rush?</string>
+    <string name="question_1_response">R: Para hacer un pedido en Rush, simplemente sigue estos pasos...</string>
+    <string name="question_2">2. ¿Puedo realizar pedidos desde múltiples restaurantes simultáneamente en Rush?</string>
+    <string name="question_2_response">R: Sí, en Rush tienes la opción de realizar pedidos desde múltiples restaurantes y combinarlos en un solo pedido.</string>
 </resources>
