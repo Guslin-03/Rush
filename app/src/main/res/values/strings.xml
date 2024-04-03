@@ -56,4 +56,13 @@
     <string name="question_1_response">R: Para hacer un pedido en Rush, simplemente sigue estos pasos...</string>
     <string name="question_2">2. ¿Puedo realizar pedidos desde múltiples restaurantes simultáneamente en Rush?</string>
     <string name="question_2_response">R: Sí, en Rush tienes la opción de realizar pedidos desde múltiples restaurantes y combinarlos en un solo pedido.</string>
+    <string name="question_3">3. ¿Es necesario consumir el pedido en el local?</string>
+    <string name="question_3_response">R: No, a través de Rush podrás realizar pedidos para recoger. Así, podrás disfrutar de la misma comida de tu bar o restaurante desde la comodidad de tu casa.</string>
+    <string name="question_4">4. ¿Debo pagar por utilizar Rush?</string>
+    <string name="question_4_response">R: No, Rush es una aplicación 100% gratuíta para el usuario. Los bares y restaurantes son los que pagar para mostrar sus establecimientos en la aplicación.</string>
+    <string name="help_email">Si no hemos resuelto tu duda, puedes contactar con nosotros a través de help@rush.com</string>
+    <string name="rush_points">Rush Points:</string>
+    <string name="actualizar_tarjeta">Actualizar la tarjeta de crédito</string>
+    <string name="numero_tarjeta">Número de Tarjeta de Crédito</string>
+    <string name="imagen_de_tarjeta_de_credito">Imagen de tarjeta de credito</string>
 </resources>

@@ -1,14 +1,99 @@
 package com.example.rush.ui.profile.card
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.example.rush.R
+import com.example.rush.data.repository.user.RoomUserDataSource
 import com.example.rush.databinding.CardActivityBinding
+import com.example.rush.ui.profile.ProfileActivity
+import com.example.rush.ui.restaurant.RestaurantActivity
+import com.example.rush.utils.MyApp
+import com.example.rush.utils.Resource
 
 class CardActivity : AppCompatActivity(){
     private lateinit var binding: CardActivityBinding
+    private val userRepository = RoomUserDataSource()
+    private val cardViewModel: CardViewModel by viewModels { CardViewModelFactory(userRepository) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = CardActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setData()
+
+        binding.changeCreditCardButton.setOnClickListener{
+            val user = MyApp.userPreferences.getUser()
+            val cardNumberText = binding.creditCardNumber.text.toString()
+            val cardNumber = if (cardNumberText.isNotEmpty()) cardNumberText.toLong() else null
+            if (user != null && cardNumber != null && isValidCardNumber(cardNumberText)) {
+                cardViewModel.onUpdateCard(user.id!!, cardNumber)
+            } else {
+                Toast.makeText(this, "El número de tarjeta no es válido", Toast.LENGTH_SHORT).show()
+            }
+        }
+        cardViewModel.card.observe(this) {
+            when(it.status) {
+                Resource.Status.SUCCESS -> {
+                    var user = MyApp.userPreferences.getUser()
+                    val cardNumberText = binding.creditCardNumber.text.toString()
+                    val cardNumber = if (cardNumberText.isNotEmpty()) cardNumberText.toLong() else null
+                    if (user != null && cardNumber != null) {
+                        user.cardNumber=cardNumber
+                        MyApp.userPreferences.saveUser(user)
+                        Toast.makeText(this, "Se ha actualizado correctamente", Toast.LENGTH_LONG).show()
+                    }
+                }
+                Resource.Status.ERROR -> {
+                    Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
+                }
+                Resource.Status.LOADING -> {
+                }
+
+            }
+        }
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.orders -> {
+                    //FUNCIONALIDAD ORDERS
+                    true
+                }
+
+                R.id.start -> {
+                    showStart()
+                    true
+                }
+
+                R.id.profile -> {
+                    showProfile()
+                    true
+                }
+
+                else -> false // Manejo predeterminado para otros elementos
+            }
+        }
+    }
+    private fun showStart(){
+        val intent = Intent(this, RestaurantActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+    private fun showProfile(){
+        val intent = Intent(this, ProfileActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+    private fun setData(){
+        val user = MyApp.userPreferences.getUser()
+        if (user != null) {
+            binding.rushPointsValue.text = user.rushPoints.toString()
+            binding.creditCardNumber.setText(user.cardNumber.toString())
+        }
+
+    }
+    private fun isValidCardNumber(cardNumber: String): Boolean {
+        val trimmedCardNumber = cardNumber.trim()
+        return trimmedCardNumber.length in 15..19 && trimmedCardNumber.matches(Regex("\\d+")) // Verifica longitud y si son todos dígitos
     }
 }

@@ -7,5 +7,7 @@ interface UserRepository {
     suspend fun getUsers(): Resource<List<User>>
     suspend fun getUserById(userId: Int): Resource<User>
     suspend fun login(username: String, password: String): Resource<User>
+
     suspend fun createUser(userArray: Array<User>): Resource<Void>
+    suspend fun updateCard(id:Int, cardNumber:Long): Resource<Void>
 }

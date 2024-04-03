@@ -7,6 +7,7 @@ import com.example.rush.data.model.User
 import com.example.rush.data.repository.UserRepository
 import com.example.rush.utils.MyApp
 import com.example.rush.utils.Resource
+import java.util.Date
 
 class RoomUserDataSource: UserRepository {
 
@@ -40,6 +41,14 @@ class RoomUserDataSource: UserRepository {
         }
         return Resource.error("Ha sucedido un error")
     }
+    override suspend fun updateCard(id:Int, cardNumber:Long): Resource<Void> {
+        val response = userDao.updateCard(id, cardNumber)
+        return if (response == 1) {
+            Resource.success()
+        } else {
+            Resource.error("Se ha producido un error al eliminar el grupo")
+        }
+    }
 
 }
 
@@ -60,4 +69,6 @@ interface UserDAO {
     @Query("SELECT * FROM users WHERE email = :username AND password = :password")
     suspend fun login(username: String, password: String) : DbUser
 
+    @Query("UPDATE users SET cardNumber = :cardNumber WHERE id = :id")
+    suspend fun updateCard(id: Int?, cardNumber: Long?) : Int
 }

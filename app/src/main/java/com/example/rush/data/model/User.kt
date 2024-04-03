@@ -12,6 +12,6 @@ data class User (
     val password: String,
     val phoneNumber: Int,
     val rushPoints: Int,
-    val cardNumber: Long,
+    var cardNumber: Long,
     val firstLogin: Boolean
 ): Parcelable

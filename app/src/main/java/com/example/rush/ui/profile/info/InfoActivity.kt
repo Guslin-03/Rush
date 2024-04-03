@@ -18,6 +18,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.rush.R
 import com.example.rush.databinding.InfoActivityBinding
 import com.example.rush.databinding.ProfileActivityBinding
+import com.example.rush.ui.profile.ProfileActivity
 import com.example.rush.ui.profile.ProfileAdapter
 import com.example.rush.ui.restaurant.RestaurantActivity
 import com.example.rush.utils.MyApp
@@ -53,7 +54,7 @@ class InfoActivity : AppCompatActivity(){
                 }
 
                 R.id.profile -> {
-                    showInfo()
+                    showProfile()
                     true
                 }
 
@@ -171,8 +172,8 @@ class InfoActivity : AppCompatActivity(){
         startActivity(intent)
         finish()
     }
-    private fun showInfo(){
-        val intent = Intent(this, InfoActivity::class.java)
+    private fun showProfile(){
+        val intent = Intent(this, ProfileActivity::class.java)
         startActivity(intent)
         finish()
     }
