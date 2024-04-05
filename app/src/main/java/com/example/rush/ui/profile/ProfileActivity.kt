@@ -17,6 +17,7 @@ import com.example.rush.databinding.ProfileActivityBinding
 import com.example.rush.ui.profile.card.CardActivity
 import com.example.rush.ui.profile.help.HelpActivity
 import com.example.rush.ui.profile.info.InfoActivity
+import com.example.rush.ui.profile.password.PasswordActivity
 import com.example.rush.ui.restaurant.RestaurantActivity
 import com.example.rush.utils.MyApp
 class ProfileActivity : AppCompatActivity() {
@@ -36,7 +37,7 @@ class ProfileActivity : AppCompatActivity() {
                 }
 
                 "Cambiar contraseña" -> {
-                    // Manejar acción para "Cambiar contraseña"
+                    showPass()
                 }
 
                 "Pedidos anteriores" -> {
@@ -119,6 +120,11 @@ class ProfileActivity : AppCompatActivity() {
     }
     private fun showHelp(){
         val intent = Intent(this, HelpActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+    private fun showPass(){
+        val intent = Intent(this, PasswordActivity::class.java)
         startActivity(intent)
         finish()
     }

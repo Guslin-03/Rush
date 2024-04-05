@@ -46,7 +46,15 @@ class RoomUserDataSource: UserRepository {
         return if (response == 1) {
             Resource.success()
         } else {
-            Resource.error("Se ha producido un error al eliminar el grupo")
+            Resource.error("Se ha producido un error al actualizar la tarjeta")
+        }
+    }
+    override suspend fun updatePass(id:Int, newPass:String, oldPass:String): Resource<Void> {
+        val response = userDao.updatePass(id, newPass, oldPass)
+        return if (response == 1) {
+            Resource.success()
+        } else {
+            Resource.error("Se ha producido un error al actualizar la contraseña")
         }
     }
 
@@ -71,4 +79,7 @@ interface UserDAO {
 
     @Query("UPDATE users SET cardNumber = :cardNumber WHERE id = :id")
     suspend fun updateCard(id: Int?, cardNumber: Long?) : Int
+
+    @Query("UPDATE users SET password = :newPass WHERE id = :id and password= :oldPass")
+    suspend fun updatePass(id: Int?, newPass: String, oldPass: String) : Int
 }

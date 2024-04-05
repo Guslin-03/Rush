@@ -65,4 +65,12 @@
     <string name="actualizar_tarjeta">Actualizar la tarjeta de crédito</string>
     <string name="numero_tarjeta">Número de Tarjeta de Crédito</string>
     <string name="imagen_de_tarjeta_de_credito">Imagen de tarjeta de credito</string>
+    <string name="pass_actual">Contraseña actual</string>
+    <string name="nueva_pass">Nueva contraseña</string>
+    <string name="repetir_pass">Repetir contraseña</string>
+    <string name="toast_password_old_new_matches">La anterior contraseña y la nueva son iguales</string>
+    <string name="toast_password_matches">Las dos contraseñas no coinciden</string>
+    <string name="toast_password_lenght">La contraseña debe tener al menos 8 caracteres</string>
+    <string name="toast_empty_1">Ningún campo puede estar vacío</string>
+    <string name="change_pass">Cambio de contraseña</string>
 </resources>

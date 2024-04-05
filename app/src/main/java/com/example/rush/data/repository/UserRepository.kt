@@ -10,4 +10,5 @@ interface UserRepository {
 
     suspend fun createUser(userArray: Array<User>): Resource<Void>
     suspend fun updateCard(id:Int, cardNumber:Long): Resource<Void>
+    suspend fun updatePass(id:Int, newPass:String, oldPass:String): Resource<Void>
 }
