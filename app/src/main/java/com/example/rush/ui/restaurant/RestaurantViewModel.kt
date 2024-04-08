@@ -35,7 +35,8 @@ class RestaurantViewModel(private val restaurantDataSource: RoomRestaurantDataSo
 }
 
 class RestaurantViewModelFactory(
-    private val restaurantDataSource: RoomRestaurantDataSource): ViewModelProvider.Factory {
+    private val restaurantDataSource: RoomRestaurantDataSource
+): ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>, extras: CreationExtras): T {
         return RestaurantViewModel(restaurantDataSource) as T
     }

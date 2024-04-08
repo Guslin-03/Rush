@@ -2,6 +2,7 @@ package com.example.rush.ui.restaurant
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.SpinnerAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -28,23 +29,13 @@ class RestaurantAdapter(
 
     }
 
-//    fun filtrateTypeGroup(listGroups: List<Restaurant>, typeGroup: ChatEnumType): List<Restaurant> {
-//
-//
-//        val filteredGroups: List<Restaurant>?
-//
-//        filteredGroups = listGroups.filter { it.type == typeGroup.toString() }
-//        submitList(filteredGroups.toList())
-//        return filteredGroups
-//    }
-
     inner class RestaurantViewHolder(private val binding: ItemRestaurantBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(restaurant: Restaurant) {
             binding.name.text = restaurant.name
             binding.rating.text = restaurant.rating.toString()
-            binding.numberReviews.text = "(${restaurant.numberReviews})"
+            binding.numberReviews.text = restaurant.numberReviews.toString()
             binding.culinaryStyle.text = restaurant.originType
             binding.specialty.text = restaurant.specialty
             binding.location.text = restaurant.location

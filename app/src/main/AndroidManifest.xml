@@ -54,6 +54,9 @@
         <activity android:name=".ui.profile.password.PasswordActivity" android:exported="true" android:label="Password">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".MainActivity"/>
         </activity>
+        <activity android:name=".ui.restaurant.menu.MenuActivity" android:exported="true" android:label="Menu">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".MainActivity"/>
+        </activity>
     </application>
 
 </manifest>

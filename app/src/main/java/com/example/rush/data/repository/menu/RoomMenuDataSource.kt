@@ -17,8 +17,8 @@ class RoomMenuDataSource: MenuRepository {
         return Resource.success(response)
     }
 
-    override suspend fun getMenusByIdRestaurant(): Resource<List<Menu>> {
-        val response = menuDAO.getMenusByIdRestaurant().map { it.toMenu() }
+    override suspend fun getMenusByIdRestaurant(restaurantId: Int): Resource<List<Menu>> {
+        val response = menuDAO.getMenusByIdRestaurant(restaurantId).map { it.toMenu() }
         return Resource.success(response)
     }
 
@@ -39,8 +39,10 @@ fun Menu.toDbMenu() = DbMenu(id, name, description, price, type, restaurantId)
 interface MenuDAO {
     @Query("SELECT * FROM menus ORDER BY name")
     suspend fun getMenus() : List<DbMenu>
-    @Query("SELECT * FROM menus ORDER BY name")
-    suspend fun getMenusByIdRestaurant() : List<DbMenu>
+    @Query("SELECT distinct menus.id, menus.name, menus.description, menus.price, menus.type, menus.restaurantId " +
+            "FROM menus JOIN restaurants On menus.restaurantId = restaurantId\n" +
+            "where restaurantId = :restaurantId")
+    suspend fun getMenusByIdRestaurant(restaurantId: Int) : List<DbMenu>
     @Insert
     suspend fun createMenu(menuList: List<DbMenu>) : LongArray
 

@@ -17,6 +17,7 @@ import com.example.rush.data.repository.restaurant.RoomRestaurantDataSource
 import com.example.rush.databinding.RestaurantActivityBinding
 import com.example.rush.ui.profile.ProfileActivity
 import com.example.rush.ui.restaurant.filter.FilterActivity
+import com.example.rush.ui.restaurant.menu.MenuActivity
 import com.example.rush.utils.MyApp
 import com.example.rush.utils.Resource
 
@@ -108,9 +109,6 @@ class RestaurantActivity : AppCompatActivity() {
                 currentRestaurantList = currentRestaurantList.filter { restaurant ->
                     restaurantFilter.specialty.contains(restaurant.specialty) }
             }
-
-            Log.i("currentRestaurantList", currentRestaurantList.toString())
-            Log.i("currentRestaurantList", restaurantFilter.toString())
             restaurantAdapter.submitList(currentRestaurantList)
         }
     }
@@ -123,6 +121,13 @@ class RestaurantActivity : AppCompatActivity() {
 
     private fun goToFilter(){
         val intent = Intent(this, FilterActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    private fun goToMenu(restaurant: Restaurant){
+        val intent = Intent(this, MenuActivity::class.java)
+        intent.putExtra("selectedRestaurant", restaurant)
         startActivity(intent)
         finish()
     }
@@ -141,8 +146,7 @@ class RestaurantActivity : AppCompatActivity() {
 
     private fun onRestaurantClickListener(restaurant: Restaurant) {
         if (loginUser != null && restaurant.id != null) {
-            //TODO cuando se hace click en el restaurante llevar a la siguiente pantalla que es la de
-            //los menus del usuario
+            goToMenu(restaurant)
         }
 
     }

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_menu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Button
+        android:id="@+id/startersbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Entrantes"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/white"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/starters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:nestedScrollingEnabled="false"
+        android:backgroundTint="@color/white"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Primeros"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/white"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/first"
+        android:layout_width="match_parent"
+        android:layout_height="223dp"
+        android:visibility="visible"
+        android:backgroundTint="@color/white"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Postres"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/white"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/dessert"
+        android:layout_width="match_parent"
+        android:layout_height="214dp"
+        android:visibility="visible"
+        android:backgroundTint="@color/white"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bebidas"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/white"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/drink"
+        android:layout_width="match_parent"
+        android:layout_height="174dp"
+        android:visibility="visible"
+        android:background="@color/white"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+</LinearLayout>
