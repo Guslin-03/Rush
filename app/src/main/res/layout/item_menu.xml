@@ -34,8 +34,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/first"
         android:layout_width="match_parent"
-        android:layout_height="223dp"
-        android:visibility="visible"
+        android:layout_height="wrap_content"
+        android:nestedScrollingEnabled="false"
         android:backgroundTint="@color/white"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
@@ -50,8 +50,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/dessert"
         android:layout_width="match_parent"
-        android:layout_height="214dp"
-        android:visibility="visible"
+        android:layout_height="wrap_content"
+        android:nestedScrollingEnabled="false"
         android:backgroundTint="@color/white"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
@@ -66,8 +66,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/drink"
         android:layout_width="match_parent"
-        android:layout_height="174dp"
-        android:visibility="visible"
+        android:layout_height="wrap_content"
+        android:nestedScrollingEnabled="false"
         android:background="@color/white"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 

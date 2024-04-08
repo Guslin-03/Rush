@@ -7,14 +7,19 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.example.rush.data.model.Menu
 import com.example.rush.data.model.Restaurant
+import com.example.rush.data.repository.menu.MenuType
 import com.example.rush.data.repository.menu.RoomMenuDataSource
 import com.example.rush.databinding.MenuActivityBinding
 import com.example.rush.utils.Resource
 
 class MenuActivity : AppCompatActivity() {
     private lateinit var binding: MenuActivityBinding
-    private lateinit var menuAdapter: MenuAdapter
+    private lateinit var startersAdapter: StartersAdapter
+    private lateinit var firstsAdapter: FirstsAdapter
+    private lateinit var dessertAdapter: DessertAdapter
+    private lateinit var drinksAdapter: DrinksAdapter
     private val menuRepository = RoomMenuDataSource()
     private val menuViewModel: MenuViewModel by viewModels { MenuViewModelFactory(menuRepository) }
 
@@ -23,10 +28,16 @@ class MenuActivity : AppCompatActivity() {
         binding = MenuActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        menuAdapter = MenuAdapter()
+        startersAdapter = StartersAdapter()
+        firstsAdapter = FirstsAdapter()
+        dessertAdapter = DessertAdapter()
+        drinksAdapter = DrinksAdapter()
         disableRadioButtonsCulinaryStyle()
 
-        binding.itemMenu.starters.adapter = menuAdapter
+        binding.itemMenu.starters.adapter = startersAdapter
+        binding.itemMenu.first.adapter = firstsAdapter
+        binding.itemMenu.dessert.adapter = dessertAdapter
+        binding.itemMenu.drink.adapter = drinksAdapter
 
         val selectedRestaurant: Restaurant? = intent.getParcelableExtra("selectedRestaurant")
 
@@ -37,7 +48,20 @@ class MenuActivity : AppCompatActivity() {
         menuViewModel.menu.observe(this) {
             when(it.status) {
                 Resource.Status.SUCCESS -> {
-                    menuAdapter.submitList(it.data)
+                    val startersList = mutableListOf<Menu>()
+                    val firstsList = mutableListOf<Menu>()
+                    val dessertsList = mutableListOf<Menu>()
+                    val drinksList = mutableListOf<Menu>()
+                    for (menu in it.data!!) {
+                        if (menu.type == MenuType.STARTERS.toString()) startersList.add(menu)
+                        if (menu.type == MenuType.FIRST.toString()) firstsList.add(menu)
+                        if (menu.type == MenuType.DESSERT.toString()) dessertsList.add(menu)
+                        if (menu.type == MenuType.DRINK.toString()) drinksList.add(menu)
+                    }
+                    startersAdapter.submitList(startersList)
+                    firstsAdapter.submitList(firstsList)
+                    dessertAdapter.submitList(dessertsList)
+                    drinksAdapter.submitList(drinksList)
                 }
                 Resource.Status.ERROR -> {
                     Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()

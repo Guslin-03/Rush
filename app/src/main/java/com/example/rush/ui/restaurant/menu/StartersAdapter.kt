@@ -1,5 +1,6 @@
 package com.example.rush.ui.restaurant.menu
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -8,30 +9,31 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.rush.data.model.Menu
 import com.example.rush.databinding.SubitemMenuBinding
 
-class MenuAdapter : ListAdapter<Menu, MenuAdapter.MenuViewHolder>(MenuAdapter.MenuDiffCallback()) {
+class StartersAdapter : ListAdapter<Menu, StartersAdapter.StartersViewHolder>(StartersDiffCallback()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StartersViewHolder {
         val binding =
             SubitemMenuBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return MenuViewHolder(binding)
+        return StartersViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: MenuAdapter.MenuViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: StartersAdapter.StartersViewHolder, position: Int) {
         val menu = getItem(position)
         holder.bind(menu)
 
     }
 
-    inner class MenuViewHolder(private val binding: SubitemMenuBinding) :
+    inner class StartersViewHolder(private val binding: SubitemMenuBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(menu: Menu) {
             binding.name.text = menu.name
-            binding.name.text = menu.price.toString()
+
+            binding.price.text = menu.price.toString()
         }
     }
 
-    class MenuDiffCallback : DiffUtil.ItemCallback<Menu>() {
+    class StartersDiffCallback : DiffUtil.ItemCallback<Menu>() {
 
         override fun areItemsTheSame(oldItem: Menu, newItem: Menu): Boolean {
             return oldItem.id == newItem.id
