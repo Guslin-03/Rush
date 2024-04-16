@@ -1,5 +1,6 @@
 package com.example.rush.ui.restaurant.menu
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -8,11 +9,19 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.rush.data.model.Menu
+import com.example.rush.data.model.Order
 import com.example.rush.data.model.Restaurant
 import com.example.rush.data.repository.menu.MenuType
 import com.example.rush.data.repository.menu.RoomMenuDataSource
 import com.example.rush.databinding.MenuActivityBinding
+import com.example.rush.databinding.SubitemMenuBinding
+import com.example.rush.ui.restaurant.menu.adapter.DessertAdapter
+import com.example.rush.ui.restaurant.menu.adapter.DrinksAdapter
+import com.example.rush.ui.restaurant.menu.adapter.FirstsAdapter
+import com.example.rush.ui.restaurant.menu.adapter.StartersAdapter
+import com.example.rush.utils.MyApp
 import com.example.rush.utils.Resource
+import java.util.Date
 
 class MenuActivity : AppCompatActivity() {
     private lateinit var binding: MenuActivityBinding
@@ -21,6 +30,9 @@ class MenuActivity : AppCompatActivity() {
     private lateinit var dessertAdapter: DessertAdapter
     private lateinit var drinksAdapter: DrinksAdapter
     private val menuRepository = RoomMenuDataSource()
+    private lateinit var order: Order
+    private var menuList = mutableListOf<Menu>()
+    private val loginUser = MyApp.userPreferences.getUser()
     private val menuViewModel: MenuViewModel by viewModels { MenuViewModelFactory(menuRepository) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,22 +40,8 @@ class MenuActivity : AppCompatActivity() {
         binding = MenuActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        startersAdapter = StartersAdapter()
-        firstsAdapter = FirstsAdapter()
-        dessertAdapter = DessertAdapter()
-        drinksAdapter = DrinksAdapter()
-        disableRadioButtonsCulinaryStyle()
-
-        binding.itemMenu.starters.adapter = startersAdapter
-        binding.itemMenu.first.adapter = firstsAdapter
-        binding.itemMenu.dessert.adapter = dessertAdapter
-        binding.itemMenu.drink.adapter = drinksAdapter
-
-        val selectedRestaurant: Restaurant? = intent.getParcelableExtra("selectedRestaurant")
-
-        if (selectedRestaurant != null) {
-            menuViewModel.onUpdateMenuList(selectedRestaurant.id)
-        }
+        //Método de inicio
+        if (loginUser != null) setUp()
 
         menuViewModel.menu.observe(this) {
             when(it.status) {
@@ -69,6 +67,14 @@ class MenuActivity : AppCompatActivity() {
                 Resource.Status.LOADING -> {
                 }
             }
+        }
+
+        binding.confirmar.setOnClickListener {
+            order = Order(null, Date(), loginUser!!.id, menuList)
+            val intent = Intent(this, MenuActivity::class.java)
+            intent.putExtra("order", order)
+            startActivity(intent)
+            finish()
         }
 
     }
@@ -122,6 +128,84 @@ class MenuActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun onMenuAddClickListener(menu: Menu, subItemMenuBinding: SubitemMenuBinding) {
+        if (menu.id != null) {
+            menu.amount += 1
+            validateMenuHasAdded(menu)
+            validateSomeMenuAdded()
+            subItemMenuBinding.amountMenu.text = menu.amount.toString()
+            subItemMenuBinding.subtractMenu.isEnabled = menu.amount != 0
+        }
+    }
+
+    private fun onMenuSubtractClickListener(menu: Menu, subItemMenuBinding: SubitemMenuBinding) {
+        if (menu.id != null) {
+            if (menu.amount > 0) {
+                menu.amount -= 1
+                validateMenuHasRemoved(menu)
+                validateSomeMenuAdded()
+                subItemMenuBinding.amountMenu.text = menu.amount.toString()
+                subItemMenuBinding.subtractMenu.isEnabled = menu.amount != 0
+            }
+        }
+    }
+
+    private fun validateMenuHasAdded(menu: Menu) {
+        if (!menuList.contains(menu)) {
+            menuList.add(menu)
+        }
+    }
+
+    private fun validateMenuHasRemoved(menu: Menu) {
+        if (menuList.contains(menu)) {
+            val index = menuList.indexOfFirst { it.id == menu.id }
+            if (menuList[index].amount == 0) {
+                menuList.removeAt(index)
+            }
+        }
+    }
+
+    private fun validateSomeMenuAdded() {
+        if (menuList.isEmpty()) {
+            binding.confirmar.visibility = View.GONE
+        }else {
+            binding.confirmar.visibility = View.VISIBLE
+        }
+    }
+
+    private fun setUp() {
+
+        startersAdapter = StartersAdapter(
+            ::onMenuAddClickListener,
+            ::onMenuSubtractClickListener
+        )
+        firstsAdapter = FirstsAdapter(
+            ::onMenuAddClickListener,
+            ::onMenuSubtractClickListener
+        )
+        dessertAdapter = DessertAdapter(
+            ::onMenuAddClickListener,
+            ::onMenuSubtractClickListener
+        )
+        drinksAdapter = DrinksAdapter(
+            ::onMenuAddClickListener,
+            ::onMenuSubtractClickListener
+        )
+        disableRadioButtonsCulinaryStyle()
+
+        binding.itemMenu.starters.adapter = startersAdapter
+        binding.itemMenu.first.adapter = firstsAdapter
+        binding.itemMenu.dessert.adapter = dessertAdapter
+        binding.itemMenu.drink.adapter = drinksAdapter
+
+        val selectedRestaurant: Restaurant? = intent.getParcelableExtra("selectedRestaurant")
+
+        if (selectedRestaurant != null) {
+            menuViewModel.onUpdateMenuList(selectedRestaurant.id)
+        }
+
     }
 
 }

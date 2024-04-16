@@ -1,4 +1,4 @@
-package com.example.rush.ui.restaurant.menu
+package com.example.rush.ui.restaurant.menu.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,30 +8,44 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.rush.data.model.Menu
 import com.example.rush.databinding.SubitemMenuBinding
 
-class DessertAdapter : ListAdapter<Menu, DessertAdapter.DessertViewHolder>(DessertDiffCallback()) {
+class DrinksAdapter(
+    private val onAddClickListener: (Menu, SubitemMenuBinding) -> Unit,
+    private val onSubtractClickListener: (Menu, SubitemMenuBinding) -> Unit
+) : ListAdapter<Menu, DrinksAdapter.DrinksViewHolder>(DrinksDiffCallback()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DessertViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DrinksViewHolder {
         val binding =
             SubitemMenuBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return DessertViewHolder(binding)
+        return DrinksViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: DessertAdapter.DessertViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: DrinksViewHolder, position: Int) {
         val menu = getItem(position)
         holder.bind(menu)
 
     }
 
-    inner class DessertViewHolder(private val binding: SubitemMenuBinding) :
+    inner class DrinksViewHolder(private val binding: SubitemMenuBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(menu: Menu) {
             binding.name.text = menu.name
             binding.price.text = menu.price.toString()
+            binding.amountMenu.text = menu.amount.toString()
+            binding.subtractMenu.isEnabled = false
+
+            binding.addMenu.setOnClickListener{
+                onAddClickListener(menu, binding)
+            }
+
+            binding.subtractMenu.setOnClickListener {
+                onSubtractClickListener(menu, binding)
+            }
+
         }
     }
 
-    class DessertDiffCallback : DiffUtil.ItemCallback<Menu>() {
+    class DrinksDiffCallback : DiffUtil.ItemCallback<Menu>() {
 
         override fun areItemsTheSame(oldItem: Menu, newItem: Menu): Boolean {
             return oldItem.id == newItem.id

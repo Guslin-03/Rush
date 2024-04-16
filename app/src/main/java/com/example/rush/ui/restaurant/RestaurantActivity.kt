@@ -148,7 +148,6 @@ class RestaurantActivity : AppCompatActivity() {
         if (loginUser != null && restaurant.id != null) {
             goToMenu(restaurant)
         }
-
     }
 
 }

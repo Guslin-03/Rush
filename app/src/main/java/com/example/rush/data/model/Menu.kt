@@ -11,7 +11,7 @@ data class Menu(
     val price: Double,
     val type: String,
     val restaurantId: Int,
-    val amount : Int
+    var amount : Int
 ):Parcelable {
 
     constructor(

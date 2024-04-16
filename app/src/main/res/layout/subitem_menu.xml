@@ -15,8 +15,9 @@
 
         <TextView
             android:id="@+id/name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="0.85"
             android:textSize="20sp"
             android:text="Postre"
             android:textStyle="bold"/>
@@ -24,7 +25,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
+            android:layout_weight="0.15"
             android:layout_marginStart="4dp"
             android:orientation="horizontal">
 
@@ -34,21 +35,21 @@
                 android:orientation="horizontal"
                 android:gravity="end">
 
-            <TextView
-                android:id="@+id/price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="11,50"
-                android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="11,5"
+                    android:textStyle="bold"/>
 
-            <TextView
-                android:id="@+id/euro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="€"
-                android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/euro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="€"
+                    android:textStyle="bold"/>
 
             </LinearLayout>
 
@@ -58,17 +59,63 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="8dp">
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:justificationMode="inter_word"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textSize="17sp" />
+            android:paddingTop="8dp"
+            android:layout_weight="0.80"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:justificationMode="inter_word"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="0.20"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/subtractMenu"
+                android:layout_width="33dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:src="@drawable/circulo_negativo__1_" />
+
+            <TextView
+                android:id="@+id/amountMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:baselineAligned="false"
+                android:text="0"
+                android:textSize="20sp" />
+
+            <ImageButton
+                android:id="@+id/addMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:src="@drawable/agregar__1_" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

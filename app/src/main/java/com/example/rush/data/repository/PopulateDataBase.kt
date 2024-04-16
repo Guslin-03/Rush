@@ -37,9 +37,9 @@ class PopulateDataBase(
     private suspend fun createUsers() {
         userLocalRepository.createUser(
             arrayOf(
-                User(null, "David", "Comeron", "davidcomeron@gmail.com", "12341234",
+                User(1, "David", "Comeron", "davidcomeron@gmail.com", "12341234",
                     601269008, 0, 4036178744314372, true),
-                User(null, "Joana", "Barber", "joanabarber@gmail.com", "12341234",
+                User(2, "Joana", "Barber", "joanabarber@gmail.com", "12341234",
                     601269008,0, 9036171644318222, true)
             )
         )
