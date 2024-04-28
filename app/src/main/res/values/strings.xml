@@ -73,4 +73,8 @@
     <string name="toast_password_lenght">La contraseña debe tener al menos 8 caracteres</string>
     <string name="toast_empty_1">Ningún campo puede estar vacío</string>
     <string name="change_pass">Cambio de contraseña</string>
+    <string name="sin_pedido">Aún no has pedido nada</string>
+    <string name="preparando">Estamos preparando tu pedido</string>
+    <string name="recoger_pedido">Ya puedes recoger tu pedido</string>
+    <string name="confirmar_recogida">Confirmar recogida</string>
 </resources>

@@ -45,6 +45,7 @@ class LoginActivity : AppCompatActivity() {
                     if (user != null) {
                         MyApp.userPreferences.saveRememberMeState(binding.rememberMe.isChecked)
                         MyApp.userPreferences.saveUser(user)
+                        MyApp.userPreferences.saveActiveOrder(false)
                         loginSuccess()
                     }
                 }

@@ -14,6 +14,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.rush.R
 import com.example.rush.databinding.CardActivityBinding
 import com.example.rush.databinding.ProfileActivityBinding
+import com.example.rush.ui.order.OrderActivity
 import com.example.rush.ui.profile.card.CardActivity
 import com.example.rush.ui.profile.help.HelpActivity
 import com.example.rush.ui.profile.info.InfoActivity
@@ -84,7 +85,7 @@ class ProfileActivity : AppCompatActivity() {
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.orders -> {
-                    //FUNCIONALIDAD ORDERS
+                    showOrders()
                     true
                 }
 
@@ -105,6 +106,11 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun showStart(){
         val intent = Intent(this, RestaurantActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+    private fun showOrders(){
+        val intent = Intent(this, OrderActivity::class.java)
         startActivity(intent)
         finish()
     }

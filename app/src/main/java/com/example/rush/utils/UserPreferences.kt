@@ -18,6 +18,7 @@ class UserPreferences {
         const val DATABASE_CREATED = "isDatabaseCreated"
         const val PROFILE_PICTURE = "profile_picture"
         const val PROFILE_PICTURE_CAMERA = "profile_picture_camera"
+        const val ACTIVE_ORDER = "active_order"
     }
 
     fun saveProfilePicture(uri: Uri) {
@@ -90,6 +91,16 @@ class UserPreferences {
 
     fun getRememberMeState(): Boolean {
         return sharedPreferences.getBoolean(REMEMBER_ME, false)
+    }
+
+    fun saveActiveOrder(activeOrder: Boolean) {
+        val editor = sharedPreferences.edit()
+        editor.putBoolean(ACTIVE_ORDER, activeOrder)
+        editor.apply()
+    }
+
+    fun getActiveOrder(): Boolean {
+        return sharedPreferences.getBoolean(ACTIVE_ORDER, false)
     }
 
     fun removeData() {

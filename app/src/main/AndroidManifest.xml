@@ -57,6 +57,9 @@
         <activity android:name=".ui.restaurant.menu.MenuActivity" android:exported="true" android:label="Menu">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".MainActivity"/>
         </activity>
+        <activity android:name=".ui.order.OrderActivity" android:exported="true" android:label="Order">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".MainActivity"/>
+        </activity>
     </application>
 
 </manifest>

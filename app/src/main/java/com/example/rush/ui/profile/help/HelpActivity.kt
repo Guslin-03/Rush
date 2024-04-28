@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.rush.R
 import com.example.rush.databinding.HelpActivityBinding
+import com.example.rush.ui.order.OrderActivity
 import com.example.rush.ui.profile.ProfileActivity
 import com.example.rush.ui.restaurant.RestaurantActivity
 
@@ -18,7 +19,7 @@ class HelpActivity : AppCompatActivity(){
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.orders -> {
-                    //FUNCIONALIDAD ORDERS
+                    showOrders()
                     true
                 }
 
@@ -43,6 +44,11 @@ class HelpActivity : AppCompatActivity(){
     }
     private fun showProfile(){
         val intent = Intent(this, ProfileActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+    private fun showOrders(){
+        val intent = Intent(this, OrderActivity::class.java)
         startActivity(intent)
         finish()
     }

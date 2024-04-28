@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.rush.R
 import com.example.rush.data.repository.user.RoomUserDataSource
 import com.example.rush.databinding.PasswordActivityBinding
+import com.example.rush.ui.order.OrderActivity
 import com.example.rush.ui.profile.ProfileActivity
 import com.example.rush.ui.restaurant.RestaurantActivity
 import com.example.rush.utils.MyApp
@@ -66,7 +67,7 @@ class PasswordActivity : AppCompatActivity() {
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.orders -> {
-                    //FUNCIONALIDAD ORDERS
+                    showOrders()
                     true
                 }
 
@@ -91,6 +92,11 @@ class PasswordActivity : AppCompatActivity() {
     }
     private fun showProfile(){
         val intent = Intent(this, ProfileActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+    private fun showOrders(){
+        val intent = Intent(this, OrderActivity::class.java)
         startActivity(intent)
         finish()
     }

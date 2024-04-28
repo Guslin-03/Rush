@@ -15,6 +15,7 @@ import com.example.rush.data.model.Restaurant
 import com.example.rush.data.model.RestaurantFilter
 import com.example.rush.data.repository.restaurant.RoomRestaurantDataSource
 import com.example.rush.databinding.RestaurantActivityBinding
+import com.example.rush.ui.order.OrderActivity
 import com.example.rush.ui.profile.ProfileActivity
 import com.example.rush.ui.restaurant.filter.FilterActivity
 import com.example.rush.ui.restaurant.menu.MenuActivity
@@ -71,7 +72,7 @@ class RestaurantActivity : AppCompatActivity() {
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.orders -> {
-                    //FUNCIONALIDAD ORDERS
+                    showOrders()
                     true
                 }
 
@@ -115,6 +116,12 @@ class RestaurantActivity : AppCompatActivity() {
 
     private fun showProfile(){
         val intent = Intent(this, ProfileActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    private fun showOrders(){
+        val intent = Intent(this, OrderActivity::class.java)
         startActivity(intent)
         finish()
     }
