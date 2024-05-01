@@ -46,10 +46,6 @@ class ProfileActivity : AppCompatActivity() {
                     showPass()
                 }
 
-                getString(R.string.pedidos_anteriores) -> {
-                    // Manejar acción para "Pedidos anteriores"
-                }
-
                 getString(R.string.metodos_de_pago) -> {
                     showCard()
                 }
