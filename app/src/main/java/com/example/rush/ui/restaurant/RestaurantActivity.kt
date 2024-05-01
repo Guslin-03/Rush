@@ -1,10 +1,13 @@
 package com.example.rush.ui.restaurant
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.rush.R
@@ -86,9 +89,21 @@ class RestaurantActivity : AppCompatActivity() {
             }
 
         }
-
+        onBackPressedDispatcher.addCallback(this) {
+            showExitConfirmationDialog()
+        }
     }
 
+    private fun showExitConfirmationDialog() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(getString(R.string.salir_app))
+        builder.setMessage(getString(R.string.seguro_salir))
+        builder.setPositiveButton(R.string.si) { dialogInterface: DialogInterface, i: Int ->
+            finish()
+        }
+        builder.setNegativeButton(R.string.no, null)
+        builder.show()
+    }
     private fun advanceFilter() {
         val restaurantFilter: RestaurantFilter? = intent.getParcelableExtra("restaurantFilter")
 
@@ -133,7 +148,6 @@ class RestaurantActivity : AppCompatActivity() {
         val intent = Intent(this, MenuActivity::class.java)
         intent.putExtra("selectedRestaurant", restaurant)
         startActivity(intent)
-        finish()
     }
 
     private fun filterByText(s: CharSequence?){

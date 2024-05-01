@@ -1,9 +1,11 @@
 package com.example.rush.ui.order
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
+import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.example.rush.R
 import com.example.rush.databinding.OrderActivityBinding
@@ -71,6 +73,20 @@ class OrderActivity : AppCompatActivity() {
             MyApp.userPreferences.saveActiveOrder(false)
             showStart()
         }
+        onBackPressedDispatcher.addCallback(this) {
+            showExitConfirmationDialog()
+        }
+    }
+
+    private fun showExitConfirmationDialog() {
+        val builder = android.app.AlertDialog.Builder(this)
+        builder.setTitle(getString(R.string.salir_app))
+        builder.setMessage(getString(R.string.seguro_salir))
+        builder.setPositiveButton(R.string.si) { dialogInterface: DialogInterface, i: Int ->
+            finish()
+        }
+        builder.setNegativeButton(R.string.no, null)
+        builder.show()
     }
     private fun showStart(){
         val intent = Intent(this, RestaurantActivity::class.java)

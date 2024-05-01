@@ -1,9 +1,12 @@
 package com.example.rush.ui.login
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.rush.R
@@ -63,7 +66,22 @@ class LoginActivity : AppCompatActivity() {
         binding.login.setOnClickListener {
             tryToLogin()
             }
+        onBackPressedDispatcher.addCallback(this) {
+            showExitConfirmationDialog()
         }
+    }
+
+    private fun showExitConfirmationDialog() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(getString(R.string.salir_app))
+        builder.setMessage(getString(R.string.seguro_salir))
+        builder.setPositiveButton(R.string.si) { dialogInterface: DialogInterface, i: Int ->
+            finish()
+        }
+        builder.setNegativeButton(R.string.no, null)
+        builder.show()
+    }
+
     private fun tryToLogin(){
         loginViewModel.onLogin(binding.email.text.toString(), binding.password.text.toString())
     }

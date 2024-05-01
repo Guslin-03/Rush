@@ -95,4 +95,10 @@
     <string name="es">Espainiera</string>
     <string name="en">Ingelesa</string>
     <string name="eu">Euskara</string>
+    <string name="salir_app">Aplikazioa ixten</string>
+    <string name="seguro_salir">Ziur zaude irten nahi duzula?</string>
+    <string name="si">Bai</string>
+    <string name="no">Ez</string>
+    <string name="cerrar_sesion">Saioa itxi</string>
+    <string name="seguro_cerrar">Ziur zaude saioa itxi nahi duzula?</string>
 </resources>

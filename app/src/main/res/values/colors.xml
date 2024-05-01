@@ -1,7 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Colores -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="yellow">#FFEB3B</color>
     <color name="enterprise">#F4A474</color>
+    <color name="orange">#F6844C</color>
+    <color name="marron">#3F1703</color>
+
+    <!-- Colores para el modo oscuro -->
+    <color name="night_background">#121212</color>
+    <color name="night_surface">#212121</color>
+    <color name="night_on_surface">#FFFFFF</color>
+    <color name="night_primary">#FFA757</color>
+    <color name="night_secondary">#E07642</color>
 </resources>

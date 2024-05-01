@@ -95,4 +95,10 @@
     <string name="es">Español</string>
     <string name="en">Inglés</string>
     <string name="eu">Euskera</string>
+    <string name="salir_app">Salir de la aplicación</string>
+    <string name="seguro_salir">¿Estás seguro de que quieres salir?</string>
+    <string name="si">Si</string>
+    <string name="no">No</string>
+    <string name="cerrar_sesion">Cerrar sesión</string>
+    <string name="seguro_cerrar">¿Estás seguro de que quieres cerrar la sesión?</string>
 </resources>

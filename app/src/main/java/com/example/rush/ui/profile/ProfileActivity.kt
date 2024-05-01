@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
+import androidx.activity.addCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -15,6 +16,7 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.bumptech.glide.request.RequestOptions
 import com.example.rush.R
 import com.example.rush.databinding.ProfileActivityBinding
+import com.example.rush.ui.login.LoginActivity
 import com.example.rush.ui.order.OrderActivity
 import com.example.rush.ui.profile.card.CardActivity
 import com.example.rush.ui.profile.help.HelpActivity
@@ -58,6 +60,10 @@ class ProfileActivity : AppCompatActivity() {
 
                 getString(R.string.ayuda) -> {
                     showHelp()
+                }
+
+                getString(R.string.cerrar_sesion) -> {
+                    logout()
                 }
 
             }
@@ -105,6 +111,32 @@ class ProfileActivity : AppCompatActivity() {
             }
 
         }
+        onBackPressedDispatcher.addCallback(this) {
+            showExitConfirmationDialog()
+        }
+    }
+    private fun logout() {
+        val builder = android.app.AlertDialog.Builder(this)
+        builder.setTitle(getString(R.string.salir_app))
+        builder.setMessage(getString(R.string.seguro_cerrar))
+        builder.setPositiveButton(R.string.si) { dialogInterface: DialogInterface, i: Int ->
+            MyApp.userPreferences.removeData()
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        builder.setNegativeButton(R.string.no, null)
+        builder.show()
+    }
+    private fun showExitConfirmationDialog() {
+        val builder = android.app.AlertDialog.Builder(this)
+        builder.setTitle(getString(R.string.salir_app))
+        builder.setMessage(getString(R.string.seguro_salir))
+        builder.setPositiveButton(R.string.si) { dialogInterface: DialogInterface, i: Int ->
+            finish()
+        }
+        builder.setNegativeButton(R.string.no, null)
+        builder.show()
     }
 
     private fun showStart(){
@@ -120,22 +152,18 @@ class ProfileActivity : AppCompatActivity() {
     private fun showInfo(){
         val intent = Intent(this, InfoActivity::class.java)
         startActivity(intent)
-        finish()
     }
     private fun showCard(){
         val intent = Intent(this, CardActivity::class.java)
         startActivity(intent)
-        finish()
     }
     private fun showHelp(){
         val intent = Intent(this, HelpActivity::class.java)
         startActivity(intent)
-        finish()
     }
     private fun showPass(){
         val intent = Intent(this, PasswordActivity::class.java)
         startActivity(intent)
-        finish()
     }
     private fun setData() {
         val user = MyApp.userPreferences.getUser()

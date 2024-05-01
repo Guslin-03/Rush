@@ -13,10 +13,10 @@ class ProfileAdapter(private val onItemClick: (String) -> Unit) :
     private val options = listOf(
         R.string.mis_datos,
         R.string.cambiar_contraseña,
-        R.string.pedidos_anteriores,
         R.string.metodos_de_pago,
         R.string.idioma,
-        R.string.ayuda
+        R.string.ayuda,
+        R.string.cerrar_sesion
     )
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OptionViewHolder {

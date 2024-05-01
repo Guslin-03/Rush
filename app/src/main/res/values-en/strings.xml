@@ -95,4 +95,10 @@
     <string name="es">Spanish</string>
     <string name="en">English</string>
     <string name="eu">Basque</string>
+    <string name="salir_app">Exit the application</string>
+    <string name="seguro_salir">Are you sure you want to exit?</string>
+    <string name="si">Yes</string>
+    <string name="no">No</string>
+    <string name="cerrar_sesion">Log out</string>
+    <string name="seguro_cerrar">Are you sure you want to log out?</string>
 </resources>

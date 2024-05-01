@@ -43,8 +43,6 @@ class HelpActivity : AppCompatActivity(){
         finish()
     }
     private fun showProfile(){
-        val intent = Intent(this, ProfileActivity::class.java)
-        startActivity(intent)
         finish()
     }
     private fun showOrders(){
