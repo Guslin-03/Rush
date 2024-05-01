@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">Rush</string>
+    <string name="app_name">Rush</string>
     <string name="logo_inicial">logo inicial</string>
     <string name="email">Correo</string>
     <string name="password">Contraseña</string>
@@ -46,7 +47,7 @@
     <string name="kebab">Kebab</string>
     <string name="burrito">Burrito</string>
     <string name="tacos_al_pastor">Tacos al Pastor</string>
-    <string name="sirloin">Sirloin</string>
+    <string name="sirloin">Solomillo</string>
     <string name="pasta">Pasta</string>
     <string name="ramen">Ramen</string>
     <string name="filtrar_establecimientos">Filtrar Establecimientos</string>
@@ -59,7 +60,7 @@
     <string name="question_4">4. ¿Debo pagar por utilizar Rush?</string>
     <string name="question_4_response">R: No, Rush es una aplicación 100% gratuíta para el usuario. Los bares y restaurantes son los que pagar para mostrar sus establecimientos en la aplicación.</string>
     <string name="help_email">Si no hemos resuelto tu duda, puedes contactar con nosotros a través de help@rush.com</string>
-    <string name="rush_points">Rush Points:</string>
+    <string name="rush_points">Puntos Rush:</string>
     <string name="actualizar_tarjeta">Actualizar la tarjeta de crédito</string>
     <string name="numero_tarjeta">Número de Tarjeta de Crédito</string>
     <string name="imagen_de_tarjeta_de_credito">Imagen de tarjeta de credito</string>
@@ -94,5 +95,4 @@
     <string name="es">Español</string>
     <string name="en">Inglés</string>
     <string name="eu">Euskera</string>
-
 </resources>

@@ -10,7 +10,7 @@
         android:id="@+id/startersbtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Entrantes"
+        android:text="@string/entrantes"
         android:textSize="18sp"
         android:textColor="@color/black"
         android:backgroundTint="@color/white"/>
@@ -26,7 +26,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Primeros"
+        android:text="@string/primeros"
         android:textSize="18sp"
         android:textColor="@color/black"
         android:backgroundTint="@color/white"/>
@@ -42,7 +42,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Postres"
+        android:text="@string/postres"
         android:textSize="18sp"
         android:textColor="@color/black"
         android:backgroundTint="@color/white"/>
@@ -58,7 +58,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bebidas"
+        android:text="@string/bebidas"
         android:textSize="18sp"
         android:textColor="@color/black"
         android:backgroundTint="@color/white"/>

@@ -29,21 +29,21 @@ class CardActivity : AppCompatActivity(){
             val cardNumberText = binding.creditCardNumber.text.toString()
             val cardNumber = if (cardNumberText.isNotEmpty()) cardNumberText.toLong() else null
             if (user != null && cardNumber != null && isValidCardNumber(cardNumberText)) {
-                cardViewModel.onUpdateCard(user.id!!, cardNumber)
+                cardViewModel.onUpdateCard(user.id, cardNumber)
             } else {
-                Toast.makeText(this, "El número de tarjeta no es válido", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.numero_tarjeta_invalido), Toast.LENGTH_SHORT).show()
             }
         }
         cardViewModel.card.observe(this) {
             when(it.status) {
                 Resource.Status.SUCCESS -> {
-                    var user = MyApp.userPreferences.getUser()
+                    val user = MyApp.userPreferences.getUser()
                     val cardNumberText = binding.creditCardNumber.text.toString()
                     val cardNumber = if (cardNumberText.isNotEmpty()) cardNumberText.toLong() else null
                     if (user != null && cardNumber != null) {
                         user.cardNumber=cardNumber
                         MyApp.userPreferences.saveUser(user)
-                        Toast.makeText(this, "Se ha actualizado correctamente", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, getString(R.string.actualizado), Toast.LENGTH_LONG).show()
                     }
                 }
                 Resource.Status.ERROR -> {

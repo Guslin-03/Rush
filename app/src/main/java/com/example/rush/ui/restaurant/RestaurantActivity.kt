@@ -1,14 +1,11 @@
 package com.example.rush.ui.restaurant
 
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.rush.R
 import com.example.rush.data.model.Restaurant

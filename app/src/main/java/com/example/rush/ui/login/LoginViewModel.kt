@@ -7,9 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.CreationExtras
 import com.example.rush.data.model.User
-import com.example.rush.data.repository.user.DbUser
 import com.example.rush.data.repository.user.RoomUserDataSource
-import com.example.rush.utils.MyApp
 import com.example.rush.utils.Resource
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch

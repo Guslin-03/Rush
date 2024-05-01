@@ -38,7 +38,7 @@ class PasswordActivity : AppCompatActivity() {
                     val newPass=binding.newPassword1.text.toString()
                     val oldPass=binding.currentPassword.text.toString()
                     Log.d("PASS", ""+oldPass)
-                    passwordViewModel.onUpdatePass(user.id!!, newPass, oldPass)
+                    passwordViewModel.onUpdatePass(user.id, newPass, oldPass)
                 }
 
             }
@@ -51,7 +51,7 @@ class PasswordActivity : AppCompatActivity() {
                     if (user != null) {
                         user.password=pass
                         MyApp.userPreferences.saveUser(user)
-                        Toast.makeText(this, "Se ha actualizado correctamente", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, getString(R.string.actualizado), Toast.LENGTH_LONG).show()
                     }
                     clearData()
                 }

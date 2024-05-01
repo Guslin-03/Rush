@@ -2,12 +2,9 @@ package com.example.rush.ui.restaurant.filter
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import android.widget.LinearLayout
 import android.widget.RadioButton
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.ui.text.toUpperCase
 import com.example.rush.data.model.RestaurantFilter
 import com.example.rush.databinding.FilterActivityBinding
 import com.example.rush.ui.restaurant.RestaurantActivity

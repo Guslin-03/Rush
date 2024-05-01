@@ -23,7 +23,7 @@ class CardViewModel (private val roomUserDataSource: RoomUserDataSource) : ViewM
         }
     }
 
-    private suspend fun updateCard(id:Int, cardNumber:Long): Resource<Void>? {
+    private suspend fun updateCard(id:Int, cardNumber:Long): Resource<Void> {
         return withContext(Dispatchers.IO) {
             roomUserDataSource.updateCard(id, cardNumber)
         }

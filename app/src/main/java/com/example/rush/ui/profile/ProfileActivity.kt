@@ -1,9 +1,11 @@
 package com.example.rush.ui.profile
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,7 +14,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.bumptech.glide.request.RequestOptions
 import com.example.rush.R
-import com.example.rush.databinding.CardActivityBinding
 import com.example.rush.databinding.ProfileActivityBinding
 import com.example.rush.ui.order.OrderActivity
 import com.example.rush.ui.profile.card.CardActivity
@@ -21,6 +22,8 @@ import com.example.rush.ui.profile.info.InfoActivity
 import com.example.rush.ui.profile.password.PasswordActivity
 import com.example.rush.ui.restaurant.RestaurantActivity
 import com.example.rush.utils.MyApp
+import java.util.Locale
+
 class ProfileActivity : AppCompatActivity() {
     private lateinit var binding: ProfileActivityBinding
 
@@ -33,27 +36,27 @@ class ProfileActivity : AppCompatActivity() {
 
         val adapter = ProfileAdapter { option ->
             when (option) {
-                "Mis datos" -> {
+                getString(R.string.mis_datos) -> {
                     showInfo()
                 }
 
-                "Cambiar contraseña" -> {
+                getString(R.string.cambiar_contraseña) -> {
                     showPass()
                 }
 
-                "Pedidos anteriores" -> {
+                getString(R.string.pedidos_anteriores) -> {
                     // Manejar acción para "Pedidos anteriores"
                 }
 
-                "Métodos de pago" -> {
+                getString(R.string.metodos_de_pago) -> {
                     showCard()
                 }
 
-                "Idioma" -> {
-                    // Manejar acción para "Idioma"
+                getString(R.string.idioma) -> {
+                    showLanguageDialog()
                 }
 
-                "Ayuda" -> {
+                getString(R.string.ayuda) -> {
                     showHelp()
                 }
 
@@ -158,6 +161,39 @@ class ProfileActivity : AppCompatActivity() {
                 .into(binding.profilePicture)
         }
     }
+    private fun showLanguageDialog() {
+        val languages = getLanguageOptions()
+        AlertDialog.Builder(this)
+            .setTitle(getString(R.string.select_language))
+            .setItems(languages) { _, i ->
+                val locale = when (i) {
+                    0 -> Locale("es")
+                    1 -> Locale("en")
+                    2 -> Locale("eu")
+                    else -> Locale.getDefault()
+                }
+                setAppLocale(locale)
+            }
+            .show()
+    }
+
+    private fun getLanguageOptions(): Array<String> {
+        return arrayOf(
+            getString(R.string.es),
+            getString(R.string.en),
+            getString(R.string.eu)
+        )
+    }
+
+
+    private fun setAppLocale(locale: Locale) {
+        val configuration = resources.configuration
+        configuration.setLocale(locale)
+        resources.updateConfiguration(configuration, resources.displayMetrics)
+
+        // Reiniciar la actividad para aplicar los cambios de idioma
+        recreate()
+    }
 
     private fun setIcon() {
         val currentNightMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
@@ -172,4 +208,5 @@ class ProfileActivity : AppCompatActivity() {
             }
         }
     }
+
 }

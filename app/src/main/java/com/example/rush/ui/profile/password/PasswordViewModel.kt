@@ -23,7 +23,7 @@ class PasswordViewModel (private val roomUserDataSource: RoomUserDataSource) : V
         }
     }
 
-    private suspend fun updatePass(id:Int, newPass:String, oldPass:String): Resource<Void>? {
+    private suspend fun updatePass(id:Int, newPass:String, oldPass:String): Resource<Void> {
         return withContext(Dispatchers.IO) {
             roomUserDataSource.updatePass(id, newPass, oldPass)
         }

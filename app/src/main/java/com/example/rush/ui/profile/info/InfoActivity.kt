@@ -17,10 +17,8 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.bumptech.glide.request.RequestOptions
 import com.example.rush.R
 import com.example.rush.databinding.InfoActivityBinding
-import com.example.rush.databinding.ProfileActivityBinding
 import com.example.rush.ui.order.OrderActivity
 import com.example.rush.ui.profile.ProfileActivity
-import com.example.rush.ui.profile.ProfileAdapter
 import com.example.rush.ui.restaurant.RestaurantActivity
 import com.example.rush.utils.MyApp
 import com.karumi.dexter.Dexter
@@ -67,7 +65,7 @@ class InfoActivity : AppCompatActivity(){
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (resultCode == AppCompatActivity.RESULT_OK) {
+        if (resultCode == RESULT_OK) {
 
             if (requestCode == 1) {
                 if (data != null && data.extras != null) {
@@ -114,7 +112,7 @@ class InfoActivity : AppCompatActivity(){
     }
 
     private fun takePhotoFromCamera() {
-        if (packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
+        if (packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY)) {
             val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             startActivityForResult(takePictureIntent, 1)
         } else {

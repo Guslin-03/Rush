@@ -4,12 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.rush.R
 import com.example.rush.databinding.OrderActivityBinding
-import com.example.rush.databinding.RestaurantActivityBinding
 import com.example.rush.ui.profile.ProfileActivity
 import com.example.rush.ui.restaurant.RestaurantActivity
 import com.example.rush.utils.MyApp
@@ -20,7 +17,7 @@ class OrderActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = OrderActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        var order= MyApp.userPreferences.getActiveOrder();
+        val order= MyApp.userPreferences.getActiveOrder()
         if (order){
             binding.texto.text= getString(R.string.preparando)
             binding.countdownTimer.visibility = View.VISIBLE

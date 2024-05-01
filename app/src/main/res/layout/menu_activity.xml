@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Seleccione su menú"
+        android:text="@string/seleccione_menu"
         android:textSize="25sp"
         android:gravity="center"
         android:textStyle="bold"/>
@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/enterprise"
-                android:text="Confirmar"
+                android:text="@string/confirmar"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:visibility="gone"

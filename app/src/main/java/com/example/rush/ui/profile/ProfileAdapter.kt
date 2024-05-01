@@ -10,7 +10,14 @@ import com.example.rush.R
 class ProfileAdapter(private val onItemClick: (String) -> Unit) :
     RecyclerView.Adapter<ProfileAdapter.OptionViewHolder>() {
 
-    private val options = listOf("Mis datos", "Cambiar contraseña", "Pedidos anteriores", "Métodos de pago", "Idioma", "Ayuda")
+    private val options = listOf(
+        R.string.mis_datos,
+        R.string.cambiar_contraseña,
+        R.string.pedidos_anteriores,
+        R.string.metodos_de_pago,
+        R.string.idioma,
+        R.string.ayuda
+    )
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OptionViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.profile_option, parent, false)
@@ -18,8 +25,8 @@ class ProfileAdapter(private val onItemClick: (String) -> Unit) :
     }
 
     override fun onBindViewHolder(holder: OptionViewHolder, position: Int) {
-        val option = options[position]
-        holder.bind(option)
+        val optionResId = options[position]
+        holder.bind(holder.itemView.context.getString(optionResId))
     }
 
     override fun getItemCount(): Int {

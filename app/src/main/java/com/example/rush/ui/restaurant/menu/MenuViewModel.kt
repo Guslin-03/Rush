@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.CreationExtras
 import com.example.rush.data.model.Menu
-import com.example.rush.data.model.Restaurant
 import com.example.rush.data.repository.menu.RoomMenuDataSource
 import com.example.rush.utils.Resource
 import kotlinx.coroutines.Dispatchers

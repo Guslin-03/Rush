@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.example.rush.R
 import com.example.rush.data.repository.PopulateDataBase
 import com.example.rush.data.repository.PopulateDatabaseFactory
 import com.example.rush.data.repository.menu.RoomMenuDataSource
@@ -50,7 +51,8 @@ class LoginActivity : AppCompatActivity() {
                     }
                 }
                 Resource.Status.ERROR -> {
-                    Toast.makeText(this, "Los datos introducidos son incorrectos", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this,
+                        getString(R.string.datos_incorrectos), Toast.LENGTH_LONG).show()
                 }
 
                 Resource.Status.LOADING -> {

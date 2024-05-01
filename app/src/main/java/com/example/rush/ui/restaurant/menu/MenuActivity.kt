@@ -2,12 +2,12 @@ package com.example.rush.ui.restaurant.menu
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.example.rush.R
 import com.example.rush.data.model.Menu
 import com.example.rush.data.model.Order
 import com.example.rush.data.model.Restaurant
@@ -85,7 +85,7 @@ class MenuActivity : AppCompatActivity() {
             if (binding.itemMenu.itemMenu.getChildAt(i) is Button) {
                 val button: Button = binding.itemMenu.itemMenu.getChildAt(i) as Button
                 button.setOnClickListener {
-                    if (button.text == "Entrantes") {
+                    if (button.text == getString(R.string.entrantes)) {
                         val visibility = recyclerView[binding.itemMenu.starters.id] ?: binding.itemMenu.starters.visibility
                         if (visibility == View.VISIBLE) {
                             binding.itemMenu.starters.visibility = View.GONE
@@ -95,7 +95,7 @@ class MenuActivity : AppCompatActivity() {
                             recyclerView[binding.itemMenu.starters.id] = View.VISIBLE
                         }
                     }
-                    if (button.text == "Primeros") {
+                    if (button.text == getString(R.string.primeros)) {
                         val visibility = recyclerView[binding.itemMenu.first.id] ?: binding.itemMenu.first.visibility
                         if (visibility == View.VISIBLE) {
                             binding.itemMenu.first.visibility = View.GONE
@@ -105,7 +105,7 @@ class MenuActivity : AppCompatActivity() {
                             recyclerView[binding.itemMenu.first.id] = View.VISIBLE
                         }
                     }
-                    if (button.text == "Postres") {
+                    if (button.text == getString(R.string.postres)) {
                         val visibility = recyclerView[binding.itemMenu.dessert.id] ?: binding.itemMenu.dessert.visibility
                         if (visibility == View.VISIBLE) {
                             binding.itemMenu.dessert.visibility = View.GONE
@@ -115,7 +115,7 @@ class MenuActivity : AppCompatActivity() {
                             recyclerView[binding.itemMenu.dessert.id] = View.VISIBLE
                         }
                     }
-                    if (button.text == "Bebidas") {
+                    if (button.text == getString(R.string.entrantes)) {
                         val visibility = recyclerView[binding.itemMenu.drink.id] ?: binding.itemMenu.drink.visibility
                         if (visibility == View.VISIBLE) {
                             binding.itemMenu.drink.visibility = View.GONE
