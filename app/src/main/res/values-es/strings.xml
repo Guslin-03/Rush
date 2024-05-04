@@ -101,4 +101,8 @@
     <string name="no">No</string>
     <string name="cerrar_sesion">Cerrar sesión</string>
     <string name="seguro_cerrar">¿Estás seguro de que quieres cerrar la sesión?</string>
+    <string name="otra_tarjeta">Añadir otra tarjeta</string>
+    <string name="cvv">CVV</string>
+    <string name="pagar">Pagar</string>
+    <string name="caducidad">Fecha de caducidad</string>
 </resources>

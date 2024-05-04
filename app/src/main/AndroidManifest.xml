@@ -60,6 +60,9 @@
         <activity android:name=".ui.order.OrderActivity" android:exported="true" android:label="Order">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".MainActivity"/>
         </activity>
+        <activity android:name=".ui.pay.PayActivity" android:exported="true" android:label="Pay">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".MainActivity"/>
+        </activity>
     </application>
 
 </manifest>
