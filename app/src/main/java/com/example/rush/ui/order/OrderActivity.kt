@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
+import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.example.rush.R
@@ -57,6 +58,7 @@ class OrderActivity : AppCompatActivity() {
                 }
 
                 R.id.start -> {
+                    showStart()
                     true
                 }
 
@@ -71,6 +73,7 @@ class OrderActivity : AppCompatActivity() {
         }
         binding.button.setOnClickListener {
             MyApp.userPreferences.saveActiveOrder(false)
+            Toast.makeText(this, getString(R.string.aproveche), Toast.LENGTH_LONG).show()
             showStart()
         }
         onBackPressedDispatcher.addCallback(this) {

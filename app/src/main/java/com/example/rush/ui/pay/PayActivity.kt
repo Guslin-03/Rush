@@ -1,12 +1,17 @@
 package com.example.rush.ui.pay
 
 import android.R
+import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.addTextChangedListener
 import com.example.rush.databinding.PayActivityBinding
+import com.example.rush.ui.order.OrderActivity
 import com.example.rush.utils.MyApp
 
 
@@ -40,6 +45,48 @@ class PayActivity : AppCompatActivity() {
                     TODO("Not yet implemented")
                 }
             }
+        binding.btnPay.setOnClickListener {
+            MyApp.userPreferences.saveActiveOrder(true)
+            val intent = Intent(this, OrderActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        binding.editTextCardNumber.addTextChangedListener{
+            checkFieldsForNewCard()
+        }
+
+        binding.editTextExpiryDate.addTextChangedListener{
+            checkFieldsForNewCard()
+        }
+
+        binding.editTextCVV.addTextChangedListener{
+            checkFieldsForNewCard()
+        }
+        binding.editTextExpiryDate.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                // Formatear la fecha como MM/AA
+                if (s?.length == 2 && s.toString().toInt() > 12) {
+                    s.replace(0, 2, "12")
+                } else if (s?.length == 4 && s[2] != '/') {
+                    s.insert(2, "/")
+                }
+            }
+        })
+    }
+    private fun checkFieldsForNewCard() {
+        val cardNumber = binding.editTextCardNumber.text.toString()
+        val expiryDate = binding.editTextExpiryDate.text.toString()
+        val cvv = binding.editTextCVV.text.toString()
+
+        val allFieldsCompleted = cardNumber.length == 16 && expiryDate.isNotEmpty() && cvv.length == 3
+
+        binding.btnPay.isEnabled = allFieldsCompleted
     }
     private fun setData(){
         val user = MyApp.userPreferences.getUser()
