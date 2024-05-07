@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/start"
         android:enabled="true"
         android:icon="@drawable/hogar_24"
-        android:title="@string/start"/>
+        android:title="@string/start"
+        android:titleCondensed="@string/start"
+        app:itemTextAppearance="@style/BoldMenuItemTextStyle"/>
     <item
         android:id="@+id/orders"
         android:enabled="true"
         android:icon="@drawable/carrito_de_compras_24"
-        android:title="@string/orders"/>
+        android:title="@string/orders"
+        android:titleCondensed="@string/start"
+        app:itemTextAppearance="@style/BoldMenuItemTextStyle"/>
     <item
         android:id="@+id/profile"
         android:enabled="true"
         android:icon="@drawable/usuario_24"
-        android:title="@string/profile" />
+        android:title="@string/profile"
+        android:titleCondensed="@string/start"
+        app:itemTextAppearance="@style/BoldMenuItemTextStyle"/>
 
 </menu>

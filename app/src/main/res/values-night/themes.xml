@@ -7,4 +7,7 @@
         <item name="colorSecondary">@color/enterprise</item>
         <item name="colorOnSecondary">@color/white</item>
     </style>
+    <style name="BoldMenuItemTextStyle">
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

@@ -8,6 +8,9 @@
     <style name="CustomBottomNavigationStyle" parent="Widget.MaterialComponents.BottomNavigationView">
         <item name="android:itemBackground">@color/marron</item>
     </style>
+    <style name="BoldMenuItemTextStyle">
+        <item name="android:textStyle">bold</item>
+    </style>
 
     <!-- Tema para el modo claro -->
     <style name="Theme.Rush" parent="Base.Theme.Rush" />
