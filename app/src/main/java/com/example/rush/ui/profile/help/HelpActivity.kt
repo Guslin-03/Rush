@@ -16,6 +16,8 @@ class HelpActivity : AppCompatActivity(){
         binding = HelpActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setIconSelected()
+
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.orders -> {
@@ -49,5 +51,8 @@ class HelpActivity : AppCompatActivity(){
         val intent = Intent(this, OrderActivity::class.java)
         startActivity(intent)
         finish()
+    }
+    private fun setIconSelected(){
+        binding.bottomNavigation.menu.findItem(R.id.profile)?.isChecked = true
     }
 }

@@ -31,6 +31,8 @@ class PasswordActivity : AppCompatActivity() {
         binding = PasswordActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setIconSelected()
+
         binding.changePassword.setOnClickListener {
             if(checkData()){
                 val user=MyApp.userPreferences.getUser()
@@ -152,5 +154,8 @@ class PasswordActivity : AppCompatActivity() {
             return false
         }
 
+    }
+    private fun setIconSelected(){
+        binding.bottomNavigation.menu.findItem(R.id.profile)?.isChecked = true
     }
 }

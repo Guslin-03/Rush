@@ -37,6 +37,7 @@ class InfoActivity : AppCompatActivity(){
         setContentView(binding.root)
 
         setData()
+        setIconSelected()
 
         binding.profilePicture.setOnClickListener { pickPhoto() }
 
@@ -178,5 +179,8 @@ class InfoActivity : AppCompatActivity(){
         val intent = Intent(this, OrderActivity::class.java)
         startActivity(intent)
         finish()
+    }
+    private fun setIconSelected(){
+        binding.bottomNavigation.menu.findItem(R.id.profile)?.isChecked = true
     }
 }

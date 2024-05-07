@@ -33,7 +33,7 @@ class RestaurantActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = RestaurantActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        setIconSelected()
         restaurantAdapter = RestaurantAdapter(
             ::onRestaurantClickListener
         )
@@ -167,5 +167,7 @@ class RestaurantActivity : AppCompatActivity() {
             goToMenu(restaurant)
         }
     }
-
+    private fun setIconSelected(){
+        binding.bottomNavigation.menu.findItem(R.id.start)?.isChecked = true
+    }
 }

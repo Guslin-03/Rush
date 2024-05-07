@@ -23,6 +23,7 @@ class CardActivity : AppCompatActivity(){
         binding = CardActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setData()
+        setIconSelected()
 
         binding.changeCreditCardButton.setOnClickListener{
             val user = MyApp.userPreferences.getUser()
@@ -99,5 +100,8 @@ class CardActivity : AppCompatActivity(){
     private fun isValidCardNumber(cardNumber: String): Boolean {
         val trimmedCardNumber = cardNumber.trim()
         return trimmedCardNumber.length in 15..19 && trimmedCardNumber.matches(Regex("\\d+")) // Verifica longitud y si son todos dígitos
+    }
+    private fun setIconSelected(){
+        binding.bottomNavigation.menu.findItem(R.id.profile)?.isChecked = true
     }
 }

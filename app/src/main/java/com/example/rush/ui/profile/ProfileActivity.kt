@@ -36,6 +36,8 @@ class ProfileActivity : AppCompatActivity() {
         val recyclerView: RecyclerView = findViewById(R.id.options_list)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
+        setIconSelected()
+
         val adapter = ProfileAdapter { option ->
             when (option) {
                 getString(R.string.mis_datos) -> {
@@ -231,6 +233,9 @@ class ProfileActivity : AppCompatActivity() {
                 binding.darkMode.setImageResource(R.drawable.sun)
             }
         }
+    }
+    private fun setIconSelected(){
+        binding.bottomNavigation.menu.findItem(R.id.profile)?.isChecked = true
     }
 
 }

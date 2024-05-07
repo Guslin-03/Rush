@@ -20,6 +20,9 @@ class OrderActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = OrderActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setIconSelected()
+
         val order= MyApp.userPreferences.getActiveOrder()
         if (order){
             binding.texto.text= getString(R.string.preparando)
@@ -108,4 +111,7 @@ class OrderActivity : AppCompatActivity() {
             finish()
         }
 
+    private fun setIconSelected(){
+        binding.bottomNavigation.menu.findItem(R.id.orders)?.isChecked = true
+    }
 }
