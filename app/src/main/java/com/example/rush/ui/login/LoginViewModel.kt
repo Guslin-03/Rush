@@ -19,6 +19,9 @@ class LoginViewModel(private val userLocalRepository: RoomUserDataSource
     private val _login = MutableLiveData<Resource<User>>()
     val login : LiveData<Resource<User>> get() = _login
 
+    private val _first =  MutableLiveData<Resource<Void>>()
+    val first : LiveData<Resource<Void>> get() = _first
+
     fun onLogin(userName: String, password: String) {
         viewModelScope.launch {
             _login.value  = login(userName, password)
@@ -27,6 +30,16 @@ class LoginViewModel(private val userLocalRepository: RoomUserDataSource
     private suspend fun login(userName: String, password: String) : Resource<User> {
         return withContext(IO) {
             userLocalRepository.login(userName, password)
+        }
+    }
+    fun onUpdateFirstTime(id:Int) {
+        viewModelScope.launch {
+            _first.value = updateFirstTime(id)
+        }
+    }
+    private suspend fun updateFirstTime(id:Int) : Resource<Void> {
+        return withContext(IO) {
+            userLocalRepository.updateFirst(id)
         }
     }
 

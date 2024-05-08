@@ -49,6 +49,14 @@ class RoomUserDataSource: UserRepository {
             Resource.error("Se ha producido un error al actualizar la tarjeta")
         }
     }
+    override suspend fun updateFirst(id:Int): Resource<Void> {
+        val response = userDao.updateFirstLogin(id)
+        return if (response == 1) {
+            Resource.success()
+        } else {
+            Resource.error("Se ha producido un error al actualizar firstLogin")
+        }
+    }
     override suspend fun updatePass(id:Int, newPass:String, oldPass:String): Resource<Void> {
         val response = userDao.updatePass(id, newPass, oldPass)
         return if (response == 1) {
@@ -82,4 +90,7 @@ interface UserDAO {
 
     @Query("UPDATE users SET password = :newPass WHERE id = :id and password= :oldPass")
     suspend fun updatePass(id: Int?, newPass: String, oldPass: String) : Int
+
+    @Query("UPDATE users SET firstLogin = 0 WHERE id = :id ")
+    suspend fun updateFirstLogin(id: Int?) : Int
 }

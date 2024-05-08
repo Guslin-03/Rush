@@ -106,4 +106,7 @@
     <string name="pagar">Pay</string>
     <string name="caducidad">Expiration date</string>
     <string name="aproveche">Enjoy your meal!</string>
+    <string name="entendido">Understood</string>
+    <string name="welcome">Welcome to Rush</string>
+    <string name="welcome_message"> From now on, you can order food from any bar or restaurant in an instant!</string>
 </resources>

@@ -106,4 +106,7 @@
     <string name="pagar">Ordaindu</string>
     <string name="caducidad">Iraungitze data</string>
     <string name="aproveche">On egin!</string>
+    <string name="entendido">Ulertuta</string>
+    <string name="welcome">Ongi etorri Rush-era</string>
+    <string name="welcome_message">Orain arte, janariak taberna edo jatetxe edozeinetatik eros dezakezu une batean!</string>
 </resources>

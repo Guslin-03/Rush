@@ -34,6 +34,7 @@ class RestaurantActivity : AppCompatActivity() {
         binding = RestaurantActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setIconSelected()
+        setWelcome()
         restaurantAdapter = RestaurantAdapter(
             ::onRestaurantClickListener
         )
@@ -169,5 +170,18 @@ class RestaurantActivity : AppCompatActivity() {
     }
     private fun setIconSelected(){
         binding.bottomNavigation.menu.findItem(R.id.start)?.isChecked = true
+    }
+    private fun setWelcome(){
+        if (MyApp.userPreferences.getUser()?.firstLogin == true) {
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle(getString(R.string.welcome))
+            builder.setMessage(getString(R.string.welcome_message))
+            builder.setPositiveButton(getString(R.string.entendido)) { dialog, _ ->
+                MyApp.userPreferences.getUser()?.firstLogin == false
+                dialog.dismiss()
+            }
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
+        }
     }
 }
