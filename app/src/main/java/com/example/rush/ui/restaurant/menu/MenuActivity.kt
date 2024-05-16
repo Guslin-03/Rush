@@ -76,7 +76,6 @@ class MenuActivity : AppCompatActivity() {
             val intent = Intent(this, ConfirmationActivity::class.java)
             intent.putExtra("order", order)
             startActivity(intent)
-            finish()
         }
 
     }

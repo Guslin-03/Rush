@@ -61,6 +61,8 @@
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".MainActivity"/>
         </activity>
         <activity android:name=".ui.pay.PayActivity" android:exported="true" android:label="Pay">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".MainActivity"/>
+        </activity>
         <activity android:name=".ui.restaurant.menu.confirmation.ConfirmationActivity" android:exported="true" android:label="Confirmation">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".MainActivity"/>
         </activity>

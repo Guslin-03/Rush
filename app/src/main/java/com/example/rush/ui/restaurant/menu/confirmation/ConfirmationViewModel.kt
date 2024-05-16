@@ -7,39 +7,44 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.CreationExtras
 import com.example.rush.data.model.Order
+import com.example.rush.data.model.Restaurant
 import com.example.rush.data.repository.order.RoomOrderDataSource
+import com.example.rush.data.repository.restaurant.RoomRestaurantDataSource
 import com.example.rush.utils.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class ConfirmationViewModel(private val orderDataSource: RoomOrderDataSource
+class ConfirmationViewModel(private val orderDataSource: RoomOrderDataSource,
+    private val restaurantDataSource: RoomRestaurantDataSource
 ) : ViewModel() {
 
     private val _order = MutableLiveData<Resource<List<Order>>>()
     val order : LiveData<Resource<List<Order>>> get() = _order
 
-    fun onUpdateOrderList(orderId: Int?) {
+    private val _restaurant = MutableLiveData<Resource<Restaurant>>()
+    val restaurant : LiveData<Resource<Restaurant>> get() = _restaurant
+
+    fun onGetRestaurantById(restaurantId: Int) {
         viewModelScope.launch {
-            if (orderId != null) {
-                _order.value = updateOrderList(orderId)
-            }
+            _restaurant.value = getRestaurantById(restaurantId)
         }
     }
-    private suspend fun updateOrderList(orderId: Int) : Resource<List<Order>>? {
+
+    private suspend fun getRestaurantById(restaurantId: Int) : Resource<Restaurant>? {
         return withContext(Dispatchers.IO) {
-//            orderDataSource.getMenusByIdRestaurant(orderId)
-            null
+            restaurantDataSource.getRestaurantById(restaurantId)
         }
     }
 
 }
 
 class ConfirmationViewModelFactory(
-    private val orderDataSource: RoomOrderDataSource
+    private val orderDataSource: RoomOrderDataSource,
+    private val restaurantDataSource: RoomRestaurantDataSource
 ): ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>, extras: CreationExtras): T {
-        return ConfirmationViewModel(orderDataSource) as T
+        return ConfirmationViewModel(orderDataSource, restaurantDataSource) as T
     }
 
 }

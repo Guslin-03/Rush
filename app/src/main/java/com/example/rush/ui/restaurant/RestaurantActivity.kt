@@ -99,7 +99,7 @@ class RestaurantActivity : AppCompatActivity() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle(getString(R.string.salir_app))
         builder.setMessage(getString(R.string.seguro_salir))
-        builder.setPositiveButton(R.string.si) { dialogInterface: DialogInterface, i: Int ->
+        builder.setPositiveButton(R.string.si) { _: DialogInterface, i: Int ->
             finish()
         }
         builder.setNegativeButton(R.string.no, null)

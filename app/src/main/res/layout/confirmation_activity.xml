@@ -4,7 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingTop="14dp">
+    android:paddingTop="14dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:paddingBottom="10dp">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -26,22 +29,77 @@
             android:id="@+id/menuList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/confirmar"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_weight="0.05"
-        android:backgroundTint="@color/enterprise"
-        android:text="@string/confirmar"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:cornerRadius="@null" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="14dp">
 
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:text="Precio Total: "
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/totalAmount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
+            android:text="112,25"
+            android:textSize="20sp"
+            android:gravity="end"/>
+
+        <TextView
+            android:id="@+id/euro"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:text="€"
+            android:textSize="20sp"
+            android:gravity="start"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/cancelar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/enterprise"
+            android:text="Cancelar"
+            android:layout_marginStart="50dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:cornerRadius="@null" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.8" />
+
+        <Button
+            android:id="@+id/confirmar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/enterprise"
+            android:text="@string/confirmar"
+            android:layout_marginEnd="50dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:cornerRadius="@null" />
+
+    </LinearLayout>
 </LinearLayout>
