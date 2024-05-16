@@ -2,10 +2,10 @@ package com.example.rush.ui.restaurant.menu.confirmation
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.example.rush.R
 import com.example.rush.data.model.ConfirmationData
 import com.example.rush.data.model.Order
 import com.example.rush.data.repository.order.RoomOrderDataSource
@@ -49,7 +49,7 @@ class ConfirmationActivity : AppCompatActivity() {
         confirmationViewModel.restaurant.observe(this) {
             when(it.status) {
                 Resource.Status.SUCCESS -> {
-                    val title = "Pedido de " + (it.data?.name ?: "" )
+                    val title = getString(R.string.tlt_confirm_activity) + (it.data?.name ?: "" )
                     binding.title.text = title
                 }
                 Resource.Status.ERROR -> {

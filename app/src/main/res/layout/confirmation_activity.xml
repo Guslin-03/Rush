@@ -44,7 +44,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.6"
-            android:text="Precio Total: "
+            android:text="@string/precio_total"
             android:textSize="22sp"
             android:textStyle="bold"
             android:gravity="center"/>
@@ -63,7 +63,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.1"
-            android:text="€"
+            android:text="@string/euro"
             android:textSize="20sp"
             android:gravity="start"/>
 
@@ -79,7 +79,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/enterprise"
-            android:text="Cancelar"
+            android:text="@string/cancel"
             android:layout_marginStart="50dp"
             android:textSize="15sp"
             android:textStyle="bold"

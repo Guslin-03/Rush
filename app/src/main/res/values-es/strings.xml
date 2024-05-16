@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Rush</string>
     <string name="logo_inicial">logo inicial</string>
     <string name="email">Correo</string>
     <string name="password">Contraseña</string>
@@ -109,4 +108,7 @@
     <string name="entendido">Entendido</string>
     <string name="welcome">Bienvenid@ a Rush</string>
     <string name="welcome_message"> ¡A partir de ahora, podrás pedir comida de cualquier bar o restaurante en un instante!</string>
+    <string name="precio_total">Precio Total:</string>
+    <string name="euro">€</string>
+    <string name="tlt_confirm_activity">"Pedido de "</string>
 </resources>

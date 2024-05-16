@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Rush</string>
     <string name="logo_inicial">Logo hasiera</string>
     <string name="email">Posta</string>
     <string name="password">Pasahitza</string>
@@ -109,4 +108,7 @@
     <string name="entendido">Ulertuta</string>
     <string name="welcome">Ongi etorri Rush-era</string>
     <string name="welcome_message">Orain arte, janariak taberna edo jatetxe edozeinetatik eros dezakezu une batean!</string>
+    <string name="precio_total">Prezio guztira:</string>
+    <string name="euro">€</string>
+    <string name="tlt_confirm_activity">Eskaera de</string>
 </resources>

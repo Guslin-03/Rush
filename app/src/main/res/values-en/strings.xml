@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Rush</string>
     <string name="profile">Profile</string>
     <string name="buscar_un_art_culo">Search for an article</string>
     <string name="filtrado_de_locales">Restaurant\'s filter</string>
@@ -109,4 +108,7 @@
     <string name="entendido">Understood</string>
     <string name="welcome">Welcome to Rush</string>
     <string name="welcome_message"> From now on, you can order food from any bar or restaurant in an instant!</string>
+    <string name="precio_total">Total Price:</string>
+    <string name="euro">€</string>
+    <string name="tlt_confirm_activity">Order of</string>
 </resources>
