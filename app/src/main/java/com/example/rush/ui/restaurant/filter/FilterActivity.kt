@@ -24,7 +24,7 @@ class FilterActivity : AppCompatActivity() {
         disableRadioButtonsSpecialty()
 
         binding.cancel.setOnClickListener {
-
+            goToRestaurants(RestaurantFilter())
         }
 
         binding.confirm.setOnClickListener {

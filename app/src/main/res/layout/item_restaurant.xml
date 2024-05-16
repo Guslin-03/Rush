@@ -52,29 +52,28 @@
 
     </LinearLayout>
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/culinaryStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.4"
-            android:orientation="horizontal">
+            android:textSize="16sp"
+            android:text="Japanese,"/>
 
-            <TextView
-                android:id="@+id/culinaryStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="Japanese,"/>
+        <TextView
+            android:id="@+id/specialty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:textSize="16sp"
+            android:text="Sushi"/>
 
-            <TextView
-                android:id="@+id/specialty"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingStart="4dp"
-                android:paddingEnd="4dp"
-                android:textSize="16sp"
-                android:text="Sushi"/>
-
-        </LinearLayout>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/location"

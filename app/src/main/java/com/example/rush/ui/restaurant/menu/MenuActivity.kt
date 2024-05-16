@@ -19,6 +19,8 @@ import com.example.rush.ui.restaurant.menu.adapter.DessertAdapter
 import com.example.rush.ui.restaurant.menu.adapter.DrinksAdapter
 import com.example.rush.ui.restaurant.menu.adapter.FirstsAdapter
 import com.example.rush.ui.restaurant.menu.adapter.StartersAdapter
+import com.example.rush.ui.restaurant.menu.confirmation.ConfirmationActivity
+import com.example.rush.ui.restaurant.menu.confirmation.ConfirmationAdapter
 import com.example.rush.utils.MyApp
 import com.example.rush.utils.Resource
 import java.util.Date
@@ -71,7 +73,7 @@ class MenuActivity : AppCompatActivity() {
 
         binding.confirmar.setOnClickListener {
             order = Order(null, Date(), loginUser!!.id, menuList)
-            val intent = Intent(this, MenuActivity::class.java)
+            val intent = Intent(this, ConfirmationActivity::class.java)
             intent.putExtra("order", order)
             startActivity(intent)
             finish()
