@@ -2,6 +2,7 @@ package com.example.rush.ui.restaurant.menu.confirmation
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -64,7 +65,7 @@ class ConfirmationActivity : AppCompatActivity() {
     }
 
     private fun setUp() {
-
+        Log.d("DEBUG", "HOLA");
         val order: Order? = intent.getParcelableExtra("order")
 
         if (order != null) {

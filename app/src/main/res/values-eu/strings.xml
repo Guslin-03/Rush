@@ -111,4 +111,7 @@
     <string name="precio_total">Prezio guztira:</string>
     <string name="euro">€</string>
     <string name="tlt_confirm_activity">"Eskaera de "</string>
+    <string name="importe">"Zenbatekoa: "</string>
+    <string name="n_pedido">Eskaera zenbakia: </string>
+    <string name="elige_tarjeta">Aukeratu ordainketa egin nahi duzun txartela edo gehitu berria</string>
 </resources>

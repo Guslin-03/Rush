@@ -55,7 +55,7 @@
     <string name="help_email">If we haven\'t resolved your question, you can contact us through help@rush.com.</string>
     <string name="rush_points">Rush Points:</string>
     <string name="actualizar_tarjeta">Update the card</string>
-    <string name="numero_tarjeta">Creadit card number</string>
+    <string name="numero_tarjeta">Credit card number</string>
     <string name="imagen_de_tarjeta_de_credito">Credit card image</string>
     <string name="pass_actual">Actual password</string>
     <string name="nueva_pass">New password</string>
@@ -111,4 +111,7 @@
     <string name="precio_total">Total Price:</string>
     <string name="euro">€</string>
     <string name="tlt_confirm_activity">"Order of "</string>
+    <string name="importe">"Amount: "</string>
+    <string name="n_pedido">Order number: </string>
+    <string name="elige_tarjeta">Choose the card you want to pay with or add a new one</string>
 </resources>

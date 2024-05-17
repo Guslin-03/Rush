@@ -5,11 +5,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
+import com.example.rush.data.model.ConfirmationData
 import com.example.rush.databinding.PayActivityBinding
 import com.example.rush.ui.order.OrderActivity
 import com.example.rush.utils.MyApp
@@ -34,10 +36,10 @@ class PayActivity : AppCompatActivity() {
                     val selectedCard = parent?.getItemAtPosition(position).toString()
                     if (selectedCard == getString(com.example.rush.R.string.otra_tarjeta)) {
                         binding.layoutNewCard.visibility = View.VISIBLE
-                        binding.btnPay.isEnabled = false;
+                        binding.btnPay.isEnabled = false
                     } else {
                         binding.layoutNewCard.visibility = View.GONE
-                        binding.btnPay.isEnabled = true;
+                        binding.btnPay.isEnabled = true
                     }
                 }
 
@@ -99,7 +101,20 @@ class PayActivity : AppCompatActivity() {
             binding.spinnerSavedCards.adapter = adapter
             binding.spinnerSavedCards.setSelection(0)
         }
-
+        //Incluye el nombre del rte y el importe del pedido
+        val confirmationData = intent.getSerializableExtra("confirmationData") as? ConfirmationData
+        confirmationData?.let {
+            val restaurantName = it.restaurantName
+            val orderAmount = it.totalAmount
+            val importe = binding.textViewOrderAmount.text.toString() + orderAmount.toString() + " €"
+            binding.textViewOrderAmount.text = importe
+            binding.textViewRestaurantName.text = restaurantName
+            val numPedido = binding.numPedido.text.toString() + generateRandomNumber()
+            binding.numPedido.text=numPedido
+        }
+    }
+    private fun generateRandomNumber(): String {
+        return " "+(1000..9999).random().toString()
     }
 
 }

@@ -111,4 +111,7 @@
     <string name="precio_total">Precio Total:</string>
     <string name="euro">€</string>
     <string name="tlt_confirm_activity">"Pedido de "</string>
+    <string name="importe">"Importe: "</string>
+    <string name="n_pedido">Número de pedido: </string>
+    <string name="elige_tarjeta">Elige la tarjeta con la que deseas pagar o añade una nueva</string>
 </resources>

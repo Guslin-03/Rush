@@ -6,28 +6,115 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <Spinner
-        android:id="@+id/spinnerSavedCards"
+    <!-- Nombre del restaurante -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_personal_configuration"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#F6844C"
+        android:elevation="4dp"
+        app:layout_collapseMode="pin"
+        app:layout_constraintBottom_toTopOf="@+id/textViewRestaurantName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/layoutNewCard"
-        android:layout_marginBottom="16dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:title=" "
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:id="@+id/resumeLogo"
+                android:layout_width="63dp"
+                android:layout_height="61dp"
+                android:contentDescription="@string/rush"
+                app:srcCompat="@drawable/rush_letters"
+                tools:ignore="ImageContrastCheck"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="16dp" />
+
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/textViewRestaurantName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/tlt_confirm_activity"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/numPedido"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_personal_configuration" />
+
+    <!-- Línea divisoria entre el importe y parte inferior -->
+
+    <!-- Numero de pedido -->
+    <View
+        android:id="@+id/divider"
+        android:layout_width="379dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/texto_card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewOrderAmount" />
+
+    <!-- Importe del pedido -->
+    <TextView
+        android:id="@+id/numPedido"
+        android:layout_width="379dp"
+        android:layout_height="wrap_content"
+        android:text="@string/n_pedido"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        app:layout_constraintBottom_toTopOf="@+id/textViewOrderAmount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewRestaurantName" />
+
+    <!-- Spinner para tarjetas guardadas -->
 
     <!-- Campos para la nueva tarjeta -->
+    <TextView
+        android:id="@+id/textViewOrderAmount"
+        android:layout_width="379dp"
+        android:layout_height="wrap_content"
+        android:text="@string/importe"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numPedido" />
+
+    <Spinner
+        android:id="@+id/spinnerSavedCards"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@id/layoutNewCard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/texto_card" />
+
     <LinearLayout
         android:id="@+id/layoutNewCard"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/spinnerSavedCards"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/btnPay"
         android:layout_marginTop="16dp"
-        android:visibility="gone">
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/btnPay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinnerSavedCards">
 
         <EditText
             android:id="@+id/editTextCardNumber"
@@ -65,14 +152,34 @@
 
     </LinearLayout>
 
+    <!-- Botón de pagar -->
     <Button
         android:id="@+id/btnPay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/pagar"
-        app:layout_constraintTop_toBottomOf="@+id/layoutNewCard"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutNewCard" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="203dp" />
+
+    <TextView
+        android:id="@+id/texto_card"
+        android:layout_width="369dp"
+        android:layout_height="45dp"
+        android:text="@string/elige_tarjeta"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerSavedCards"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/divider" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
