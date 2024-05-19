@@ -18,7 +18,6 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.rush.R
 import com.example.rush.databinding.InfoActivityBinding
 import com.example.rush.ui.order.OrderActivity
-import com.example.rush.ui.profile.ProfileActivity
 import com.example.rush.ui.restaurant.RestaurantActivity
 import com.example.rush.utils.MyApp
 import com.karumi.dexter.Dexter
@@ -62,44 +61,8 @@ class InfoActivity : AppCompatActivity(){
             }
         }
     }
-    @Deprecated("Deprecated in Java")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (resultCode == RESULT_OK) {
-
-            if (requestCode == 1) {
-                if (data != null && data.extras != null) {
-                    val bitmap = data.extras!!.get("data") as Bitmap
-                    val uri = getImageUri(bitmap)
-                    MyApp.userPreferences.removeProfilePictureUri()
-                    MyApp.userPreferences.saveProfilePictureCamera(uri)
-                    val roundedBitmapDrawable =
-                        RoundedBitmapDrawableFactory.create(resources, bitmap)
-                    roundedBitmapDrawable.isCircular = true
-                    binding.profilePicture.setImageDrawable(roundedBitmapDrawable)
-                }
-            } else if (requestCode == 2) {
-                if (data != null && data.data != null) {
-                    MyApp.userPreferences.removeProfilePictureUriCamera()
-                    MyApp.userPreferences.saveProfilePicture(data.data!!)
-                    Glide.with(this)
-                        .load(data.data)
-                        .apply(RequestOptions().transform(CircleCrop()))
-                        .into(binding.profilePicture)
-                }
-            }
-
-
-        }
-
-    }
     private fun pickPhoto() {
-        val options = arrayOf<CharSequence>(
-            getString(R.string.take_picture),
-            getString(R.string.get_picture),
-            getString(R.string.cancel)
-        )
+        val options = arrayOf<CharSequence>(getString(R.string.take_picture), getString(R.string.get_picture), getString(R.string.cancel))
         val builder = AlertDialog.Builder(this)
         builder.setTitle(R.string.choose)
         builder.setItems(options) { dialog, which ->
@@ -138,24 +101,63 @@ class InfoActivity : AppCompatActivity(){
                     startActivity(intent)
                 }
 
-                override fun onPermissionRationaleShouldBeShown(
-                    p0: PermissionRequest?,
-                    p1: PermissionToken?
-                ) {
+                override fun onPermissionRationaleShouldBeShown(p0: PermissionRequest?, p1: PermissionToken?) {
                 }
 
             }).check()
     }
+    @Deprecated("Deprecated in Java")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (resultCode == RESULT_OK) {
+
+            if (requestCode == 1) {
+                if (data != null && data.extras != null) {
+                    val bitmap = data.extras!!.get("data") as Bitmap
+                    val uri = getImageUri(bitmap)
+                    MyApp.userPreferences.removeProfilePictureUri()
+                    MyApp.userPreferences.saveProfilePictureCamera(uri)
+                    val roundedBitmapDrawable = RoundedBitmapDrawableFactory.create(resources, bitmap)
+                    roundedBitmapDrawable.isCircular = true
+                    binding.profilePicture.setImageDrawable(roundedBitmapDrawable)
+                }
+            } else if (requestCode == 2) {
+                if (data != null && data.data != null) {
+                    MyApp.userPreferences.removeProfilePictureUriCamera()
+                    MyApp.userPreferences.saveProfilePicture(data.data!!)
+                    Glide.with(this)
+                        .load(data.data)
+                        .apply(RequestOptions().transform(CircleCrop()))
+                        .into(binding.profilePicture)
+                }
+            }
+
+
+        }
+
+    }
     private fun getImageUri(bitmap: Bitmap): Uri {
         val bytes = ByteArrayOutputStream()
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
-        val path = MediaStore.Images.Media.insertImage(
-            applicationContext.contentResolver,
-            bitmap,
-            "Title",
-            null
-        )
+        val path = MediaStore.Images.Media.insertImage(applicationContext.contentResolver, bitmap, "Title", null)
         return Uri.parse(path)
+    }
+    private fun showPhoto(){
+        val cameraPhoto = MyApp.userPreferences.getProfilePictureUriCamera()
+        val savedPhotoLocal= MyApp.userPreferences.getProfilePictureUri()
+        if(cameraPhoto !=null){
+            val photo= Uri.parse(cameraPhoto.toString())
+            Glide.with(this)
+                .load(photo)
+                .apply(RequestOptions().transform(CircleCrop()))
+                .into(binding.profilePicture)
+        }else if(savedPhotoLocal!=null ){
+            Glide.with(this)
+                .load(savedPhotoLocal)
+                .apply(RequestOptions().transform(CircleCrop()))
+                .into(binding.profilePicture)
+        }
     }
     private fun setData(){
         val user = MyApp.userPreferences.getUser()
@@ -164,6 +166,7 @@ class InfoActivity : AppCompatActivity(){
             binding.surname.setText(user.surname)
             binding.phone.setText(user.phoneNumber.toString())
             binding.email.setText(user.email)
+            showPhoto()
         }
 
     }

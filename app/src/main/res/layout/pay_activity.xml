@@ -144,7 +144,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="@string/cvv"
-                android:inputType="number"
+                android:inputType="numberPassword"
                 android:maxLength="3"
                 android:maxLines="1" />
 

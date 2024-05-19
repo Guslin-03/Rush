@@ -119,6 +119,7 @@ class ProfileActivity : AppCompatActivity() {
         builder.setMessage(getString(R.string.seguro_cerrar))
         builder.setPositiveButton(R.string.si) { dialogInterface: DialogInterface, i: Int ->
             MyApp.userPreferences.removeData()
+            MyApp.userPreferences.removePicture()
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
