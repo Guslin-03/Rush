@@ -117,7 +117,9 @@ class InfoActivity : AppCompatActivity(){
                     val bitmap = data.extras!!.get("data") as Bitmap
                     val uri = getImageUri(bitmap)
                     MyApp.userPreferences.removeProfilePictureUri()
-                    MyApp.userPreferences.saveProfilePictureCamera(uri)
+                    if (uri != null) {
+                        MyApp.userPreferences.saveProfilePictureCamera(uri)
+                    }
                     val roundedBitmapDrawable = RoundedBitmapDrawableFactory.create(resources, bitmap)
                     roundedBitmapDrawable.isCircular = true
                     binding.profilePicture.setImageDrawable(roundedBitmapDrawable)
@@ -137,11 +139,22 @@ class InfoActivity : AppCompatActivity(){
         }
 
     }
-    private fun getImageUri(bitmap: Bitmap): Uri {
+    private fun getImageUri(bitmap: Bitmap): Uri? {
         val bytes = ByteArrayOutputStream()
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
-        val path = MediaStore.Images.Media.insertImage(applicationContext.contentResolver, bitmap, "Title", null)
-        return Uri.parse(path)
+
+        return try {
+            val path = MediaStore.Images.Media.insertImage(applicationContext.contentResolver, bitmap, "Title", null)
+            if (path != null) {
+                Uri.parse(path)
+            } else {
+                Log.e("getImageUri", "Error inserting image into MediaStore")
+                null
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null
+        }
     }
     private fun showPhoto(){
         val cameraPhoto = MyApp.userPreferences.getProfilePictureUriCamera()
