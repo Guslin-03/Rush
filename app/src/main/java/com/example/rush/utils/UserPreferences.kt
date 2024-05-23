@@ -19,6 +19,7 @@ class UserPreferences {
         const val PROFILE_PICTURE = "profile_picture"
         const val PROFILE_PICTURE_CAMERA = "profile_picture_camera"
         const val ACTIVE_ORDER = "active_order"
+        const val POPUP = "popup"
     }
 
     fun saveProfilePicture(uri: Uri) {
@@ -101,6 +102,15 @@ class UserPreferences {
 
     fun getActiveOrder(): Boolean {
         return sharedPreferences.getBoolean(ACTIVE_ORDER, false)
+    }
+    fun savePopUp(active: Boolean) {
+        val editor = sharedPreferences.edit()
+        editor.putBoolean(POPUP, active)
+        editor.apply()
+    }
+
+    fun getPopUp(): Boolean {
+        return sharedPreferences.getBoolean(POPUP, false)
     }
 
     fun removeData() {

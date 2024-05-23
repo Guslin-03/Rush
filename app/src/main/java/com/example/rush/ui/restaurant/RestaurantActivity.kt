@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.activity.viewModels
@@ -172,12 +173,12 @@ class RestaurantActivity : AppCompatActivity() {
         binding.bottomNavigation.menu.findItem(R.id.start)?.isChecked = true
     }
     private fun setWelcome(){
-        if (MyApp.userPreferences.getUser()?.firstLogin == true) {
+        if (MyApp.userPreferences.getUser()?.firstLogin == false && MyApp.userPreferences.getPopUp()) {
             val builder = AlertDialog.Builder(this)
             builder.setTitle(getString(R.string.welcome))
             builder.setMessage(getString(R.string.welcome_message))
             builder.setPositiveButton(getString(R.string.entendido)) { dialog, _ ->
-                MyApp.userPreferences.getUser()?.firstLogin == false
+                MyApp.userPreferences.savePopUp(false)
                 dialog.dismiss()
             }
             val dialog: AlertDialog = builder.create()

@@ -50,6 +50,7 @@ class LoginActivity : AppCompatActivity() {
                         MyApp.userPreferences.saveRememberMeState(binding.rememberMe.isChecked)
                         MyApp.userPreferences.saveUser(user)
                         MyApp.userPreferences.saveActiveOrder(false)
+                        MyApp.userPreferences.savePopUp(true)
                         loginViewModel.onUpdateFirstTime(user.id)
                         loginSuccess()
                     }
