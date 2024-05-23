@@ -41,6 +41,7 @@ class ConfirmationActivity : AppCompatActivity() {
                 binding.title.text.toString().split(" ")[2],
                 binding.totalAmount.text.toString().toDouble())
             goToPay(confirmationData)
+            finish()
         }
 
         binding.cancelar.setOnClickListener {
