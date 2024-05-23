@@ -148,7 +148,6 @@ class InfoActivity : AppCompatActivity(){
             if (path != null) {
                 Uri.parse(path)
             } else {
-                Log.e("getImageUri", "Error inserting image into MediaStore")
                 null
             }
         } catch (e: Exception) {
